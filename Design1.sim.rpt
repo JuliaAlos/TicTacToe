@@ -1,0 +1,597 @@
+Simulator report for Design1
+Sun Apr 28 13:54:36 2024
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 7.0 us       ;
+; Simulation Netlist Size     ; 345 nodes    ;
+; Simulation Coverage         ;      69.86 % ;
+; Total Number of Transitions ; 2019         ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
+; Device                      ; EP2C35F672C6 ;
++-----------------------------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                               ;
++--------------------------------------------------------------------------------------------+---------------------+---------------+
+; Option                                                                                     ; Setting             ; Default Value ;
++--------------------------------------------------------------------------------------------+---------------------+---------------+
+; Simulation mode                                                                            ; Timing              ; Timing        ;
+; Start time                                                                                 ; 0 ns                ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF                ;               ;
+; Vector input source                                                                        ; simulation_game.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                  ; On            ;
+; Check outputs                                                                              ; Off                 ; Off           ;
+; Report simulation coverage                                                                 ; On                  ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                  ; On            ;
+; Display missing 1-value coverage report                                                    ; On                  ; On            ;
+; Display missing 0-value coverage report                                                    ; On                  ; On            ;
+; Detect setup and hold time violations                                                      ; Off                 ; Off           ;
+; Detect glitches                                                                            ; Off                 ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                 ; Off           ;
+; Generate Signal Activity File                                                              ; Off                 ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                 ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                 ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                  ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE          ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                 ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                 ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                ; Auto          ;
++--------------------------------------------------------------------------------------------+---------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      69.86 % ;
+; Total nodes checked                                 ; 345          ;
+; Total output ports checked                          ; 345          ;
+; Total output ports with complete 1/0-value coverage ; 241          ;
+; Total output ports with no 1/0-value coverage       ; 88           ;
+; Total output ports with no 1-value coverage         ; 90           ;
+; Total output ports with no 0-value coverage         ; 102          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++----------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                      ;
++-------------------------------------------------------+-------------------------------------------------------+------------------+
+; Node Name                                             ; Output Port Name                                      ; Output Port Type ;
++-------------------------------------------------------+-------------------------------------------------------+------------------+
+; |Design1_for_simulation|game:GAME|LED_READY           ; |Design1_for_simulation|game:GAME|LED_READY           ; regout           ;
+; |Design1_for_simulation|game:GAME|LED_WAIT            ; |Design1_for_simulation|game:GAME|LED_WAIT            ; regout           ;
+; |Design1_for_simulation|game:GAME|LED_MOVE            ; |Design1_for_simulation|game:GAME|LED_MOVE            ; regout           ;
+; |Design1_for_simulation|game:GAME|LED_WIN             ; |Design1_for_simulation|game:GAME|LED_WIN             ; regout           ;
+; |Design1_for_simulation|game:GAME|LED_TIE             ; |Design1_for_simulation|game:GAME|LED_TIE             ; regout           ;
+; |Design1_for_simulation|game:GAME|start_turn          ; |Design1_for_simulation|game:GAME|start_turn          ; regout           ;
+; |Design1_for_simulation|game:GAME|state.g_new         ; |Design1_for_simulation|game:GAME|state.g_new         ; regout           ;
+; |Design1_for_simulation|game:GAME|LED_NUM             ; |Design1_for_simulation|game:GAME|LED_NUM             ; regout           ;
+; |Design1_for_simulation|game:GAME|send_data[2]        ; |Design1_for_simulation|game:GAME|send_data[2]        ; regout           ;
+; |Design1_for_simulation|game:GAME|send_data[1]        ; |Design1_for_simulation|game:GAME|send_data[1]        ; regout           ;
+; |Design1_for_simulation|game:GAME|send_data[0]        ; |Design1_for_simulation|game:GAME|send_data[0]        ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[8]        ; |Design1_for_simulation|game:GAME|our_cells[8]        ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[7]        ; |Design1_for_simulation|game:GAME|our_cells[7]        ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[6]        ; |Design1_for_simulation|game:GAME|our_cells[6]        ; regout           ;
+; |Design1_for_simulation|game:GAME|state.wtx           ; |Design1_for_simulation|game:GAME|state.wtx           ; regout           ;
+; |Design1_for_simulation|game:GAME|state.wait_move     ; |Design1_for_simulation|game:GAME|state.wait_move     ; regout           ;
+; |Design1_for_simulation|game:GAME|state.wtx2          ; |Design1_for_simulation|game:GAME|state.wtx2          ; regout           ;
+; |Design1_for_simulation|game:GAME|state.wrdy          ; |Design1_for_simulation|game:GAME|state.wrdy          ; regout           ;
+; |Design1_for_simulation|game:GAME|state.wait_bcd      ; |Design1_for_simulation|game:GAME|state.wait_bcd      ; regout           ;
+; |Design1_for_simulation|game:GAME|num[3]              ; |Design1_for_simulation|game:GAME|num[3]              ; regout           ;
+; |Design1_for_simulation|game:GAME|num[0]              ; |Design1_for_simulation|game:GAME|num[0]              ; regout           ;
+; |Design1_for_simulation|game:GAME|state.end_check     ; |Design1_for_simulation|game:GAME|state.end_check     ; regout           ;
+; |Design1_for_simulation|game:GAME|state.srdy          ; |Design1_for_simulation|game:GAME|state.srdy          ; regout           ;
+; |Design1_for_simulation|game:GAME|state.sd_move       ; |Design1_for_simulation|game:GAME|state.sd_move       ; regout           ;
+; |Design1_for_simulation|game:GAME|state.sd_win        ; |Design1_for_simulation|game:GAME|state.sd_win        ; regout           ;
+; |Design1_for_simulation|game:GAME|state.fr_rdy        ; |Design1_for_simulation|game:GAME|state.fr_rdy        ; regout           ;
+; |Design1_for_simulation|game:GAME|state.fr_bcd        ; |Design1_for_simulation|game:GAME|state.fr_bcd        ; regout           ;
+; |Design1_for_simulation|game:GAME|state.fr_tie        ; |Design1_for_simulation|game:GAME|state.fr_tie        ; regout           ;
+; |Design1_for_simulation|game:GAME|frame_received      ; |Design1_for_simulation|game:GAME|frame_received      ; combout          ;
+; |Design1_for_simulation|game:GAME|WideOr11~0          ; |Design1_for_simulation|game:GAME|WideOr11~0          ; combout          ;
+; |Design1_for_simulation|game:GAME|state.read_num      ; |Design1_for_simulation|game:GAME|state.read_num      ; regout           ;
+; |Design1_for_simulation|game:GAME|state.read_key      ; |Design1_for_simulation|game:GAME|state.read_key      ; regout           ;
+; |Design1_for_simulation|game:GAME|key_read            ; |Design1_for_simulation|game:GAME|key_read            ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells[3]        ; |Design1_for_simulation|game:GAME|opp_cells[3]        ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[0]        ; |Design1_for_simulation|game:GAME|opp_cells[0]        ; regout           ;
+; |Design1_for_simulation|game:GAME|state.check_num     ; |Design1_for_simulation|game:GAME|state.check_num     ; regout           ;
+; |Design1_for_simulation|game:GAME|Selector29~0        ; |Design1_for_simulation|game:GAME|Selector29~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|state~50            ; |Design1_for_simulation|game:GAME|state~50            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~51            ; |Design1_for_simulation|game:GAME|state~51            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~52            ; |Design1_for_simulation|game:GAME|state~52            ; combout          ;
+; |Design1_for_simulation|game:GAME|state.g_num         ; |Design1_for_simulation|game:GAME|state.g_num         ; regout           ;
+; |Design1_for_simulation|game:GAME|state~53            ; |Design1_for_simulation|game:GAME|state~53            ; combout          ;
+; |Design1_for_simulation|game:GAME|WideOr14~0          ; |Design1_for_simulation|game:GAME|WideOr14~0          ; combout          ;
+; |Design1_for_simulation|game:GAME|state~54            ; |Design1_for_simulation|game:GAME|state~54            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~55            ; |Design1_for_simulation|game:GAME|state~55            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~56            ; |Design1_for_simulation|game:GAME|state~56            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~57            ; |Design1_for_simulation|game:GAME|state~57            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~58            ; |Design1_for_simulation|game:GAME|state~58            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~59            ; |Design1_for_simulation|game:GAME|state~59            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~60            ; |Design1_for_simulation|game:GAME|state~60            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~61            ; |Design1_for_simulation|game:GAME|state~61            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~62            ; |Design1_for_simulation|game:GAME|state~62            ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~1         ; |Design1_for_simulation|game:GAME|process_0~1         ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~2         ; |Design1_for_simulation|game:GAME|process_0~2         ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~5         ; |Design1_for_simulation|game:GAME|process_0~5         ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~3           ; |Design1_for_simulation|game:GAME|Equal10~3           ; combout          ;
+; |Design1_for_simulation|game:GAME|state.check_results ; |Design1_for_simulation|game:GAME|state.check_results ; regout           ;
+; |Design1_for_simulation|game:GAME|state~63            ; |Design1_for_simulation|game:GAME|state~63            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~64            ; |Design1_for_simulation|game:GAME|state~64            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~66            ; |Design1_for_simulation|game:GAME|state~66            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~67            ; |Design1_for_simulation|game:GAME|state~67            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~68            ; |Design1_for_simulation|game:GAME|state~68            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~69            ; |Design1_for_simulation|game:GAME|state~69            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~70            ; |Design1_for_simulation|game:GAME|state~70            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~71            ; |Design1_for_simulation|game:GAME|state~71            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~72            ; |Design1_for_simulation|game:GAME|state~72            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~73            ; |Design1_for_simulation|game:GAME|state~73            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~74            ; |Design1_for_simulation|game:GAME|state~74            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~75            ; |Design1_for_simulation|game:GAME|state~75            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~77            ; |Design1_for_simulation|game:GAME|state~77            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~78            ; |Design1_for_simulation|game:GAME|state~78            ; combout          ;
+; |Design1_for_simulation|game:GAME|state.check_cell    ; |Design1_for_simulation|game:GAME|state.check_cell    ; regout           ;
+; |Design1_for_simulation|game:GAME|selected_cell[0]    ; |Design1_for_simulation|game:GAME|selected_cell[0]    ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~7         ; |Design1_for_simulation|game:GAME|process_0~7         ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[3]    ; |Design1_for_simulation|game:GAME|selected_cell[3]    ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~10        ; |Design1_for_simulation|game:GAME|process_0~10        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal1~0            ; |Design1_for_simulation|game:GAME|Equal1~0            ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[7]    ; |Design1_for_simulation|game:GAME|selected_cell[7]    ; regout           ;
+; |Design1_for_simulation|game:GAME|selected_cell[6]    ; |Design1_for_simulation|game:GAME|selected_cell[6]    ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~12        ; |Design1_for_simulation|game:GAME|process_0~12        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal1~2            ; |Design1_for_simulation|game:GAME|Equal1~2            ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[8]    ; |Design1_for_simulation|game:GAME|selected_cell[8]    ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~13        ; |Design1_for_simulation|game:GAME|process_0~13        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal1~3            ; |Design1_for_simulation|game:GAME|Equal1~3            ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector20~0        ; |Design1_for_simulation|game:GAME|Selector20~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector58~0        ; |Design1_for_simulation|game:GAME|Selector58~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector58~1        ; |Design1_for_simulation|game:GAME|Selector58~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector58~2        ; |Design1_for_simulation|game:GAME|Selector58~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector58~3        ; |Design1_for_simulation|game:GAME|Selector58~3        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector57~0        ; |Design1_for_simulation|game:GAME|Selector57~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector57~1        ; |Design1_for_simulation|game:GAME|Selector57~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector57~2        ; |Design1_for_simulation|game:GAME|Selector57~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector59~0        ; |Design1_for_simulation|game:GAME|Selector59~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector59~1        ; |Design1_for_simulation|game:GAME|Selector59~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector59~2        ; |Design1_for_simulation|game:GAME|Selector59~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector59~3        ; |Design1_for_simulation|game:GAME|Selector59~3        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector59~4        ; |Design1_for_simulation|game:GAME|Selector59~4        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector59~5        ; |Design1_for_simulation|game:GAME|Selector59~5        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector60~0        ; |Design1_for_simulation|game:GAME|Selector60~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector60~1        ; |Design1_for_simulation|game:GAME|Selector60~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector60~2        ; |Design1_for_simulation|game:GAME|Selector60~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector60~3        ; |Design1_for_simulation|game:GAME|Selector60~3        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector61~0        ; |Design1_for_simulation|game:GAME|Selector61~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector61~1        ; |Design1_for_simulation|game:GAME|Selector61~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector61~2        ; |Design1_for_simulation|game:GAME|Selector61~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector10~0        ; |Design1_for_simulation|game:GAME|Selector10~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector61~4        ; |Design1_for_simulation|game:GAME|Selector61~4        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal0~1            ; |Design1_for_simulation|game:GAME|Equal0~1            ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector24~1        ; |Design1_for_simulation|game:GAME|Selector24~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector24~2        ; |Design1_for_simulation|game:GAME|Selector24~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector24~4        ; |Design1_for_simulation|game:GAME|Selector24~4        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector24~5        ; |Design1_for_simulation|game:GAME|Selector24~5        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector24~6        ; |Design1_for_simulation|game:GAME|Selector24~6        ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games[0]      ; |Design1_for_simulation|game:GAME|total_games[0]      ; regout           ;
+; |Design1_for_simulation|game:GAME|Selector9~0         ; |Design1_for_simulation|game:GAME|Selector9~0         ; combout          ;
+; |Design1_for_simulation|game:GAME|state~81            ; |Design1_for_simulation|game:GAME|state~81            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~82            ; |Design1_for_simulation|game:GAME|state~82            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~83            ; |Design1_for_simulation|game:GAME|state~83            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~84            ; |Design1_for_simulation|game:GAME|state~84            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~85            ; |Design1_for_simulation|game:GAME|state~85            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~86            ; |Design1_for_simulation|game:GAME|state~86            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~87            ; |Design1_for_simulation|game:GAME|state~87            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~88            ; |Design1_for_simulation|game:GAME|state~88            ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector30~0        ; |Design1_for_simulation|game:GAME|Selector30~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector30~1        ; |Design1_for_simulation|game:GAME|Selector30~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector30~2        ; |Design1_for_simulation|game:GAME|Selector30~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|send_data~0         ; |Design1_for_simulation|game:GAME|send_data~0         ; combout          ;
+; |Design1_for_simulation|game:GAME|send_data[0]~1      ; |Design1_for_simulation|game:GAME|send_data[0]~1      ; combout          ;
+; |Design1_for_simulation|game:GAME|send_data[0]~2      ; |Design1_for_simulation|game:GAME|send_data[0]~2      ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell[2]         ; |Design1_for_simulation|game:GAME|num_cell[2]         ; regout           ;
+; |Design1_for_simulation|game:GAME|send_data~3         ; |Design1_for_simulation|game:GAME|send_data~3         ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell[1]         ; |Design1_for_simulation|game:GAME|num_cell[1]         ; regout           ;
+; |Design1_for_simulation|game:GAME|send_data~4         ; |Design1_for_simulation|game:GAME|send_data~4         ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell[0]         ; |Design1_for_simulation|game:GAME|num_cell[0]         ; regout           ;
+; |Design1_for_simulation|game:GAME|send_data~5         ; |Design1_for_simulation|game:GAME|send_data~5         ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~0         ; |Design1_for_simulation|game:GAME|opp_cells~0         ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells[1]~1      ; |Design1_for_simulation|game:GAME|opp_cells[1]~1      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells[1]~2      ; |Design1_for_simulation|game:GAME|opp_cells[1]~2      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~3         ; |Design1_for_simulation|game:GAME|opp_cells~3         ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~4         ; |Design1_for_simulation|game:GAME|opp_cells~4         ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~7         ; |Design1_for_simulation|game:GAME|opp_cells~7         ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~10        ; |Design1_for_simulation|game:GAME|opp_cells~10        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector39~0        ; |Design1_for_simulation|game:GAME|Selector39~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector39~1        ; |Design1_for_simulation|game:GAME|Selector39~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector40~0        ; |Design1_for_simulation|game:GAME|Selector40~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector40~1        ; |Design1_for_simulation|game:GAME|Selector40~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector41~0        ; |Design1_for_simulation|game:GAME|Selector41~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector41~1        ; |Design1_for_simulation|game:GAME|Selector41~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|state~89            ; |Design1_for_simulation|game:GAME|state~89            ; combout          ;
+; |Design1_for_simulation|game:GAME|state.modify_num    ; |Design1_for_simulation|game:GAME|state.modify_num    ; regout           ;
+; |Design1_for_simulation|game:GAME|Selector4~0         ; |Design1_for_simulation|game:GAME|Selector4~0         ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector20~1        ; |Design1_for_simulation|game:GAME|Selector20~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector20~2        ; |Design1_for_simulation|game:GAME|Selector20~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector13~0        ; |Design1_for_simulation|game:GAME|Selector13~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector6~0         ; |Design1_for_simulation|game:GAME|Selector6~0         ; combout          ;
+; |Design1_for_simulation|game:GAME|state~91            ; |Design1_for_simulation|game:GAME|state~91            ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector10~1        ; |Design1_for_simulation|game:GAME|Selector10~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector10~2        ; |Design1_for_simulation|game:GAME|Selector10~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector10~3        ; |Design1_for_simulation|game:GAME|Selector10~3        ; combout          ;
+; |Design1_for_simulation|game:GAME|state~92            ; |Design1_for_simulation|game:GAME|state~92            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~93            ; |Design1_for_simulation|game:GAME|state~93            ; combout          ;
+; |Design1_for_simulation|game:GAME|state~94            ; |Design1_for_simulation|game:GAME|state~94            ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~0     ; |Design1_for_simulation|game:GAME|selected_cell~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~1     ; |Design1_for_simulation|game:GAME|selected_cell~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~3     ; |Design1_for_simulation|game:GAME|selected_cell~3     ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[0]~4  ; |Design1_for_simulation|game:GAME|selected_cell[0]~4  ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[0]~5  ; |Design1_for_simulation|game:GAME|selected_cell[0]~5  ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~7     ; |Design1_for_simulation|game:GAME|selected_cell~7     ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~8     ; |Design1_for_simulation|game:GAME|selected_cell~8     ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~9     ; |Design1_for_simulation|game:GAME|selected_cell~9     ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~10    ; |Design1_for_simulation|game:GAME|selected_cell~10    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~11    ; |Design1_for_simulation|game:GAME|selected_cell~11    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~12    ; |Design1_for_simulation|game:GAME|selected_cell~12    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~13    ; |Design1_for_simulation|game:GAME|selected_cell~13    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~15    ; |Design1_for_simulation|game:GAME|selected_cell~15    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~18    ; |Design1_for_simulation|game:GAME|selected_cell~18    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~19    ; |Design1_for_simulation|game:GAME|selected_cell~19    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~20    ; |Design1_for_simulation|game:GAME|selected_cell~20    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~21    ; |Design1_for_simulation|game:GAME|selected_cell~21    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~22    ; |Design1_for_simulation|game:GAME|selected_cell~22    ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~23    ; |Design1_for_simulation|game:GAME|selected_cell~23    ; combout          ;
+; |Design1_for_simulation|game:GAME|num~0               ; |Design1_for_simulation|game:GAME|num~0               ; combout          ;
+; |Design1_for_simulation|game:GAME|num[0]~1            ; |Design1_for_simulation|game:GAME|num[0]~1            ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_num~0           ; |Design1_for_simulation|game:GAME|opp_num~0           ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_num[0]~1        ; |Design1_for_simulation|game:GAME|opp_num[0]~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_num~2           ; |Design1_for_simulation|game:GAME|opp_num~2           ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_num~3           ; |Design1_for_simulation|game:GAME|opp_num~3           ; combout          ;
+; |Design1_for_simulation|game:GAME|num~2               ; |Design1_for_simulation|game:GAME|num~2               ; combout          ;
+; |Design1_for_simulation|game:GAME|num~3               ; |Design1_for_simulation|game:GAME|num~3               ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_num~4           ; |Design1_for_simulation|game:GAME|opp_num~4           ; combout          ;
+; |Design1_for_simulation|game:GAME|num~4               ; |Design1_for_simulation|game:GAME|num~4               ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games~0       ; |Design1_for_simulation|game:GAME|total_games~0       ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games[1]~1    ; |Design1_for_simulation|game:GAME|total_games[1]~1    ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games~3       ; |Design1_for_simulation|game:GAME|total_games~3       ; combout          ;
+; |Design1_for_simulation|game:GAME|WideOr11~1          ; |Design1_for_simulation|game:GAME|WideOr11~1          ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell~0          ; |Design1_for_simulation|game:GAME|num_cell~0          ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell[0]~1       ; |Design1_for_simulation|game:GAME|num_cell[0]~1       ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell~2          ; |Design1_for_simulation|game:GAME|num_cell~2          ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell~3          ; |Design1_for_simulation|game:GAME|num_cell~3          ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell~4          ; |Design1_for_simulation|game:GAME|num_cell~4          ; combout          ;
+; |Design1_for_simulation|game:GAME|state~95            ; |Design1_for_simulation|game:GAME|state~95            ; combout          ;
+; |Design1_for_simulation|LED_READY                     ; |Design1_for_simulation|LED_READY                     ; padio            ;
+; |Design1_for_simulation|S_DRY                         ; |Design1_for_simulation|S_DRY                         ; padio            ;
+; |Design1_for_simulation|S_MOVE                        ; |Design1_for_simulation|S_MOVE                        ; padio            ;
+; |Design1_for_simulation|S_WIN                         ; |Design1_for_simulation|S_WIN                         ; padio            ;
+; |Design1_for_simulation|farme_received                ; |Design1_for_simulation|farme_received                ; padio            ;
+; |Design1_for_simulation|LED_WAIT                      ; |Design1_for_simulation|LED_WAIT                      ; padio            ;
+; |Design1_for_simulation|LED_MOVE                      ; |Design1_for_simulation|LED_MOVE                      ; padio            ;
+; |Design1_for_simulation|LED_WIN                       ; |Design1_for_simulation|LED_WIN                       ; padio            ;
+; |Design1_for_simulation|LED_TIE                       ; |Design1_for_simulation|LED_TIE                       ; padio            ;
+; |Design1_for_simulation|Start                         ; |Design1_for_simulation|Start                         ; padio            ;
+; |Design1_for_simulation|new_game                      ; |Design1_for_simulation|new_game                      ; padio            ;
+; |Design1_for_simulation|win                           ; |Design1_for_simulation|win                           ; padio            ;
+; |Design1_for_simulation|tie                           ; |Design1_for_simulation|tie                           ; padio            ;
+; |Design1_for_simulation|keyread                       ; |Design1_for_simulation|keyread                       ; padio            ;
+; |Design1_for_simulation|LED_NUM                       ; |Design1_for_simulation|LED_NUM                       ; padio            ;
+; |Design1_for_simulation|data[2]                       ; |Design1_for_simulation|data[2]                       ; padio            ;
+; |Design1_for_simulation|data[1]                       ; |Design1_for_simulation|data[1]                       ; padio            ;
+; |Design1_for_simulation|data[0]                       ; |Design1_for_simulation|data[0]                       ; padio            ;
+; |Design1_for_simulation|opp_cell[3]                   ; |Design1_for_simulation|opp_cell[3]                   ; padio            ;
+; |Design1_for_simulation|opp_cell[0]                   ; |Design1_for_simulation|opp_cell[0]                   ; padio            ;
+; |Design1_for_simulation|our_cell[8]                   ; |Design1_for_simulation|our_cell[8]                   ; padio            ;
+; |Design1_for_simulation|our_cell[7]                   ; |Design1_for_simulation|our_cell[7]                   ; padio            ;
+; |Design1_for_simulation|our_cell[6]                   ; |Design1_for_simulation|our_cell[6]                   ; padio            ;
+; |Design1_for_simulation|clk                           ; |Design1_for_simulation|clk~corein                    ; combout          ;
+; |Design1_for_simulation|start_game                    ; |Design1_for_simulation|start_game~corein             ; combout          ;
+; |Design1_for_simulation|nrst                          ; |Design1_for_simulation|nrst~corein                   ; combout          ;
+; |Design1_for_simulation|ready_tx                      ; |Design1_for_simulation|ready_tx~corein               ; combout          ;
+; |Design1_for_simulation|MOVE_R                        ; |Design1_for_simulation|MOVE_R~corein                 ; combout          ;
+; |Design1_for_simulation|TIE_R                         ; |Design1_for_simulation|TIE_R~corein                  ; combout          ;
+; |Design1_for_simulation|new_frame                     ; |Design1_for_simulation|new_frame~corein              ; combout          ;
+; |Design1_for_simulation|bcd                           ; |Design1_for_simulation|bcd~corein                    ; combout          ;
+; |Design1_for_simulation|RDY_R                         ; |Design1_for_simulation|RDY_R~corein                  ; combout          ;
+; |Design1_for_simulation|received_data[0]              ; |Design1_for_simulation|received_data[0]~corein       ; combout          ;
+; |Design1_for_simulation|received_data[3]              ; |Design1_for_simulation|received_data[3]~corein       ; combout          ;
+; |Design1_for_simulation|received_data[2]              ; |Design1_for_simulation|received_data[2]~corein       ; combout          ;
+; |Design1_for_simulation|received_data[1]              ; |Design1_for_simulation|received_data[1]~corein       ; combout          ;
+; |Design1_for_simulation|keycode[2]                    ; |Design1_for_simulation|keycode[2]~corein             ; combout          ;
+; |Design1_for_simulation|keycode[1]                    ; |Design1_for_simulation|keycode[1]~corein             ; combout          ;
+; |Design1_for_simulation|keycode[0]                    ; |Design1_for_simulation|keycode[0]~corein             ; combout          ;
+; |Design1_for_simulation|clk~clkctrl                   ; |Design1_for_simulation|clk~clkctrl                   ; outclk           ;
++-------------------------------------------------------+-------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++----------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                   ;
++----------------------------------------------------+----------------------------------------------------+------------------+
+; Node Name                                          ; Output Port Name                                   ; Output Port Type ;
++----------------------------------------------------+----------------------------------------------------+------------------+
+; |Design1_for_simulation|game:GAME|LED_LOSE         ; |Design1_for_simulation|game:GAME|LED_LOSE         ; regout           ;
+; |Design1_for_simulation|game:GAME|send_data[3]     ; |Design1_for_simulation|game:GAME|send_data[3]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[5]     ; |Design1_for_simulation|game:GAME|our_cells[5]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[4]     ; |Design1_for_simulation|game:GAME|our_cells[4]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[2]     ; |Design1_for_simulation|game:GAME|our_cells[2]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[1]     ; |Design1_for_simulation|game:GAME|our_cells[1]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[0]     ; |Design1_for_simulation|game:GAME|our_cells[0]     ; regout           ;
+; |Design1_for_simulation|game:GAME|state.sd_tie     ; |Design1_for_simulation|game:GAME|state.sd_tie     ; regout           ;
+; |Design1_for_simulation|game:GAME|state.fr_lose    ; |Design1_for_simulation|game:GAME|state.fr_lose    ; regout           ;
+; |Design1_for_simulation|game:GAME|state.g_finish   ; |Design1_for_simulation|game:GAME|state.g_finish   ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[7]     ; |Design1_for_simulation|game:GAME|opp_cells[7]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[6]     ; |Design1_for_simulation|game:GAME|opp_cells[6]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[5]     ; |Design1_for_simulation|game:GAME|opp_cells[5]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[4]     ; |Design1_for_simulation|game:GAME|opp_cells[4]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[2]     ; |Design1_for_simulation|game:GAME|opp_cells[2]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[1]     ; |Design1_for_simulation|game:GAME|opp_cells[1]     ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~0      ; |Design1_for_simulation|game:GAME|process_0~0      ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~3      ; |Design1_for_simulation|game:GAME|process_0~3      ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~4      ; |Design1_for_simulation|game:GAME|process_0~4      ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~0        ; |Design1_for_simulation|game:GAME|Equal10~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~1        ; |Design1_for_simulation|game:GAME|Equal10~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~2        ; |Design1_for_simulation|game:GAME|Equal10~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~4        ; |Design1_for_simulation|game:GAME|Equal10~4        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~5        ; |Design1_for_simulation|game:GAME|Equal10~5        ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~6      ; |Design1_for_simulation|game:GAME|process_0~6      ; combout          ;
+; |Design1_for_simulation|game:GAME|state~65         ; |Design1_for_simulation|game:GAME|state~65         ; combout          ;
+; |Design1_for_simulation|game:GAME|state~76         ; |Design1_for_simulation|game:GAME|state~76         ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[1] ; |Design1_for_simulation|game:GAME|selected_cell[1] ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~8      ; |Design1_for_simulation|game:GAME|process_0~8      ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[2] ; |Design1_for_simulation|game:GAME|selected_cell[2] ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~9      ; |Design1_for_simulation|game:GAME|process_0~9      ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[5] ; |Design1_for_simulation|game:GAME|selected_cell[5] ; regout           ;
+; |Design1_for_simulation|game:GAME|selected_cell[4] ; |Design1_for_simulation|game:GAME|selected_cell[4] ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~11     ; |Design1_for_simulation|game:GAME|process_0~11     ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal1~1         ; |Design1_for_simulation|game:GAME|Equal1~1         ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector60~4     ; |Design1_for_simulation|game:GAME|Selector60~4     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector60~5     ; |Design1_for_simulation|game:GAME|Selector60~5     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector61~3     ; |Design1_for_simulation|game:GAME|Selector61~3     ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_num[3]       ; |Design1_for_simulation|game:GAME|opp_num[3]       ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_num[1]       ; |Design1_for_simulation|game:GAME|opp_num[1]       ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_num[2]       ; |Design1_for_simulation|game:GAME|opp_num[2]       ; regout           ;
+; |Design1_for_simulation|game:GAME|Equal0~0         ; |Design1_for_simulation|game:GAME|Equal0~0         ; combout          ;
+; |Design1_for_simulation|game:GAME|LessThan0~0      ; |Design1_for_simulation|game:GAME|LessThan0~0      ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector24~0     ; |Design1_for_simulation|game:GAME|Selector24~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector24~3     ; |Design1_for_simulation|game:GAME|Selector24~3     ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games[3]   ; |Design1_for_simulation|game:GAME|total_games[3]   ; regout           ;
+; |Design1_for_simulation|game:GAME|total_games[2]   ; |Design1_for_simulation|game:GAME|total_games[2]   ; regout           ;
+; |Design1_for_simulation|game:GAME|state~79         ; |Design1_for_simulation|game:GAME|state~79         ; combout          ;
+; |Design1_for_simulation|game:GAME|state~80         ; |Design1_for_simulation|game:GAME|state~80         ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell[3]      ; |Design1_for_simulation|game:GAME|num_cell[3]      ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells~5      ; |Design1_for_simulation|game:GAME|opp_cells~5      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~6      ; |Design1_for_simulation|game:GAME|opp_cells~6      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~8      ; |Design1_for_simulation|game:GAME|opp_cells~8      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~9      ; |Design1_for_simulation|game:GAME|opp_cells~9      ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector42~0     ; |Design1_for_simulation|game:GAME|Selector42~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector42~1     ; |Design1_for_simulation|game:GAME|Selector42~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector43~0     ; |Design1_for_simulation|game:GAME|Selector43~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector43~1     ; |Design1_for_simulation|game:GAME|Selector43~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector45~0     ; |Design1_for_simulation|game:GAME|Selector45~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector45~1     ; |Design1_for_simulation|game:GAME|Selector45~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector46~0     ; |Design1_for_simulation|game:GAME|Selector46~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector46~1     ; |Design1_for_simulation|game:GAME|Selector46~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector47~0     ; |Design1_for_simulation|game:GAME|Selector47~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector47~1     ; |Design1_for_simulation|game:GAME|Selector47~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~2  ; |Design1_for_simulation|game:GAME|selected_cell~2  ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~6  ; |Design1_for_simulation|game:GAME|selected_cell~6  ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~14 ; |Design1_for_simulation|game:GAME|selected_cell~14 ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~16 ; |Design1_for_simulation|game:GAME|selected_cell~16 ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~17 ; |Design1_for_simulation|game:GAME|selected_cell~17 ; combout          ;
+; |Design1_for_simulation|game:GAME|Add0~0           ; |Design1_for_simulation|game:GAME|Add0~0           ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games~2    ; |Design1_for_simulation|game:GAME|total_games~2    ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games~4    ; |Design1_for_simulation|game:GAME|total_games~4    ; combout          ;
+; |Design1_for_simulation|S_TIE                      ; |Design1_for_simulation|S_TIE                      ; padio            ;
+; |Design1_for_simulation|LED_LOSE                   ; |Design1_for_simulation|LED_LOSE                   ; padio            ;
+; |Design1_for_simulation|game_end                   ; |Design1_for_simulation|game_end                   ; padio            ;
+; |Design1_for_simulation|lose                       ; |Design1_for_simulation|lose                       ; padio            ;
+; |Design1_for_simulation|data[3]                    ; |Design1_for_simulation|data[3]                    ; padio            ;
+; |Design1_for_simulation|opp_cell[7]                ; |Design1_for_simulation|opp_cell[7]                ; padio            ;
+; |Design1_for_simulation|opp_cell[6]                ; |Design1_for_simulation|opp_cell[6]                ; padio            ;
+; |Design1_for_simulation|opp_cell[5]                ; |Design1_for_simulation|opp_cell[5]                ; padio            ;
+; |Design1_for_simulation|opp_cell[4]                ; |Design1_for_simulation|opp_cell[4]                ; padio            ;
+; |Design1_for_simulation|opp_cell[2]                ; |Design1_for_simulation|opp_cell[2]                ; padio            ;
+; |Design1_for_simulation|opp_cell[1]                ; |Design1_for_simulation|opp_cell[1]                ; padio            ;
+; |Design1_for_simulation|our_cell[5]                ; |Design1_for_simulation|our_cell[5]                ; padio            ;
+; |Design1_for_simulation|our_cell[4]                ; |Design1_for_simulation|our_cell[4]                ; padio            ;
+; |Design1_for_simulation|our_cell[2]                ; |Design1_for_simulation|our_cell[2]                ; padio            ;
+; |Design1_for_simulation|our_cell[1]                ; |Design1_for_simulation|our_cell[1]                ; padio            ;
+; |Design1_for_simulation|our_cell[0]                ; |Design1_for_simulation|our_cell[0]                ; padio            ;
+; |Design1_for_simulation|WIN_R                      ; |Design1_for_simulation|WIN_R~corein               ; combout          ;
+; |Design1_for_simulation|keycode[3]                 ; |Design1_for_simulation|keycode[3]~corein          ; combout          ;
++----------------------------------------------------+----------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++----------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                   ;
++----------------------------------------------------+----------------------------------------------------+------------------+
+; Node Name                                          ; Output Port Name                                   ; Output Port Type ;
++----------------------------------------------------+----------------------------------------------------+------------------+
+; |Design1_for_simulation|game:GAME|LED_LOSE         ; |Design1_for_simulation|game:GAME|LED_LOSE         ; regout           ;
+; |Design1_for_simulation|game:GAME|send_data[3]     ; |Design1_for_simulation|game:GAME|send_data[3]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[5]     ; |Design1_for_simulation|game:GAME|our_cells[5]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[4]     ; |Design1_for_simulation|game:GAME|our_cells[4]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[3]     ; |Design1_for_simulation|game:GAME|our_cells[3]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[2]     ; |Design1_for_simulation|game:GAME|our_cells[2]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[1]     ; |Design1_for_simulation|game:GAME|our_cells[1]     ; regout           ;
+; |Design1_for_simulation|game:GAME|our_cells[0]     ; |Design1_for_simulation|game:GAME|our_cells[0]     ; regout           ;
+; |Design1_for_simulation|game:GAME|num[2]           ; |Design1_for_simulation|game:GAME|num[2]           ; regout           ;
+; |Design1_for_simulation|game:GAME|num[1]           ; |Design1_for_simulation|game:GAME|num[1]           ; regout           ;
+; |Design1_for_simulation|game:GAME|state.sd_tie     ; |Design1_for_simulation|game:GAME|state.sd_tie     ; regout           ;
+; |Design1_for_simulation|game:GAME|state.fr_lose    ; |Design1_for_simulation|game:GAME|state.fr_lose    ; regout           ;
+; |Design1_for_simulation|game:GAME|state.g_finish   ; |Design1_for_simulation|game:GAME|state.g_finish   ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[8]     ; |Design1_for_simulation|game:GAME|opp_cells[8]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[7]     ; |Design1_for_simulation|game:GAME|opp_cells[7]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[6]     ; |Design1_for_simulation|game:GAME|opp_cells[6]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[5]     ; |Design1_for_simulation|game:GAME|opp_cells[5]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[4]     ; |Design1_for_simulation|game:GAME|opp_cells[4]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[2]     ; |Design1_for_simulation|game:GAME|opp_cells[2]     ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells[1]     ; |Design1_for_simulation|game:GAME|opp_cells[1]     ; regout           ;
+; |Design1_for_simulation|game:GAME|state.g_wait     ; |Design1_for_simulation|game:GAME|state.g_wait     ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~0      ; |Design1_for_simulation|game:GAME|process_0~0      ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~3      ; |Design1_for_simulation|game:GAME|process_0~3      ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~4      ; |Design1_for_simulation|game:GAME|process_0~4      ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~0        ; |Design1_for_simulation|game:GAME|Equal10~0        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~1        ; |Design1_for_simulation|game:GAME|Equal10~1        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~2        ; |Design1_for_simulation|game:GAME|Equal10~2        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~4        ; |Design1_for_simulation|game:GAME|Equal10~4        ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal10~5        ; |Design1_for_simulation|game:GAME|Equal10~5        ; combout          ;
+; |Design1_for_simulation|game:GAME|process_0~6      ; |Design1_for_simulation|game:GAME|process_0~6      ; combout          ;
+; |Design1_for_simulation|game:GAME|state~65         ; |Design1_for_simulation|game:GAME|state~65         ; combout          ;
+; |Design1_for_simulation|game:GAME|state~76         ; |Design1_for_simulation|game:GAME|state~76         ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[1] ; |Design1_for_simulation|game:GAME|selected_cell[1] ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~8      ; |Design1_for_simulation|game:GAME|process_0~8      ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[2] ; |Design1_for_simulation|game:GAME|selected_cell[2] ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~9      ; |Design1_for_simulation|game:GAME|process_0~9      ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell[5] ; |Design1_for_simulation|game:GAME|selected_cell[5] ; regout           ;
+; |Design1_for_simulation|game:GAME|selected_cell[4] ; |Design1_for_simulation|game:GAME|selected_cell[4] ; regout           ;
+; |Design1_for_simulation|game:GAME|process_0~11     ; |Design1_for_simulation|game:GAME|process_0~11     ; combout          ;
+; |Design1_for_simulation|game:GAME|Equal1~1         ; |Design1_for_simulation|game:GAME|Equal1~1         ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector60~4     ; |Design1_for_simulation|game:GAME|Selector60~4     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector60~5     ; |Design1_for_simulation|game:GAME|Selector60~5     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector61~3     ; |Design1_for_simulation|game:GAME|Selector61~3     ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_num[3]       ; |Design1_for_simulation|game:GAME|opp_num[3]       ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_num[1]       ; |Design1_for_simulation|game:GAME|opp_num[1]       ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_num[2]       ; |Design1_for_simulation|game:GAME|opp_num[2]       ; regout           ;
+; |Design1_for_simulation|game:GAME|LessThan0~0      ; |Design1_for_simulation|game:GAME|LessThan0~0      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_num[0]       ; |Design1_for_simulation|game:GAME|opp_num[0]       ; regout           ;
+; |Design1_for_simulation|game:GAME|Selector24~0     ; |Design1_for_simulation|game:GAME|Selector24~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector24~3     ; |Design1_for_simulation|game:GAME|Selector24~3     ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games[1]   ; |Design1_for_simulation|game:GAME|total_games[1]   ; regout           ;
+; |Design1_for_simulation|game:GAME|total_games[3]   ; |Design1_for_simulation|game:GAME|total_games[3]   ; regout           ;
+; |Design1_for_simulation|game:GAME|total_games[2]   ; |Design1_for_simulation|game:GAME|total_games[2]   ; regout           ;
+; |Design1_for_simulation|game:GAME|state~79         ; |Design1_for_simulation|game:GAME|state~79         ; combout          ;
+; |Design1_for_simulation|game:GAME|state~80         ; |Design1_for_simulation|game:GAME|state~80         ; combout          ;
+; |Design1_for_simulation|game:GAME|num_cell[3]      ; |Design1_for_simulation|game:GAME|num_cell[3]      ; regout           ;
+; |Design1_for_simulation|game:GAME|opp_cells~5      ; |Design1_for_simulation|game:GAME|opp_cells~5      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~6      ; |Design1_for_simulation|game:GAME|opp_cells~6      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~8      ; |Design1_for_simulation|game:GAME|opp_cells~8      ; combout          ;
+; |Design1_for_simulation|game:GAME|opp_cells~9      ; |Design1_for_simulation|game:GAME|opp_cells~9      ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector42~0     ; |Design1_for_simulation|game:GAME|Selector42~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector42~1     ; |Design1_for_simulation|game:GAME|Selector42~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector43~0     ; |Design1_for_simulation|game:GAME|Selector43~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector43~1     ; |Design1_for_simulation|game:GAME|Selector43~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector44~0     ; |Design1_for_simulation|game:GAME|Selector44~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector44~1     ; |Design1_for_simulation|game:GAME|Selector44~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector45~0     ; |Design1_for_simulation|game:GAME|Selector45~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector45~1     ; |Design1_for_simulation|game:GAME|Selector45~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector46~0     ; |Design1_for_simulation|game:GAME|Selector46~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector46~1     ; |Design1_for_simulation|game:GAME|Selector46~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector47~0     ; |Design1_for_simulation|game:GAME|Selector47~0     ; combout          ;
+; |Design1_for_simulation|game:GAME|Selector47~1     ; |Design1_for_simulation|game:GAME|Selector47~1     ; combout          ;
+; |Design1_for_simulation|game:GAME|state~90         ; |Design1_for_simulation|game:GAME|state~90         ; combout          ;
+; |Design1_for_simulation|game:GAME|Mux9~0           ; |Design1_for_simulation|game:GAME|Mux9~0           ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~2  ; |Design1_for_simulation|game:GAME|selected_cell~2  ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~6  ; |Design1_for_simulation|game:GAME|selected_cell~6  ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~14 ; |Design1_for_simulation|game:GAME|selected_cell~14 ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~16 ; |Design1_for_simulation|game:GAME|selected_cell~16 ; combout          ;
+; |Design1_for_simulation|game:GAME|selected_cell~17 ; |Design1_for_simulation|game:GAME|selected_cell~17 ; combout          ;
+; |Design1_for_simulation|game:GAME|Add0~0           ; |Design1_for_simulation|game:GAME|Add0~0           ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games~2    ; |Design1_for_simulation|game:GAME|total_games~2    ; combout          ;
+; |Design1_for_simulation|game:GAME|Add0~1           ; |Design1_for_simulation|game:GAME|Add0~1           ; combout          ;
+; |Design1_for_simulation|game:GAME|total_games~4    ; |Design1_for_simulation|game:GAME|total_games~4    ; combout          ;
+; |Design1_for_simulation|S_TIE                      ; |Design1_for_simulation|S_TIE                      ; padio            ;
+; |Design1_for_simulation|LED_LOSE                   ; |Design1_for_simulation|LED_LOSE                   ; padio            ;
+; |Design1_for_simulation|game_end                   ; |Design1_for_simulation|game_end                   ; padio            ;
+; |Design1_for_simulation|lose                       ; |Design1_for_simulation|lose                       ; padio            ;
+; |Design1_for_simulation|data[3]                    ; |Design1_for_simulation|data[3]                    ; padio            ;
+; |Design1_for_simulation|opp_cell[8]                ; |Design1_for_simulation|opp_cell[8]                ; padio            ;
+; |Design1_for_simulation|opp_cell[7]                ; |Design1_for_simulation|opp_cell[7]                ; padio            ;
+; |Design1_for_simulation|opp_cell[6]                ; |Design1_for_simulation|opp_cell[6]                ; padio            ;
+; |Design1_for_simulation|opp_cell[5]                ; |Design1_for_simulation|opp_cell[5]                ; padio            ;
+; |Design1_for_simulation|opp_cell[4]                ; |Design1_for_simulation|opp_cell[4]                ; padio            ;
+; |Design1_for_simulation|opp_cell[2]                ; |Design1_for_simulation|opp_cell[2]                ; padio            ;
+; |Design1_for_simulation|opp_cell[1]                ; |Design1_for_simulation|opp_cell[1]                ; padio            ;
+; |Design1_for_simulation|our_cell[5]                ; |Design1_for_simulation|our_cell[5]                ; padio            ;
+; |Design1_for_simulation|our_cell[4]                ; |Design1_for_simulation|our_cell[4]                ; padio            ;
+; |Design1_for_simulation|our_cell[3]                ; |Design1_for_simulation|our_cell[3]                ; padio            ;
+; |Design1_for_simulation|our_cell[2]                ; |Design1_for_simulation|our_cell[2]                ; padio            ;
+; |Design1_for_simulation|our_cell[1]                ; |Design1_for_simulation|our_cell[1]                ; padio            ;
+; |Design1_for_simulation|our_cell[0]                ; |Design1_for_simulation|our_cell[0]                ; padio            ;
+; |Design1_for_simulation|WIN_R                      ; |Design1_for_simulation|WIN_R~corein               ; combout          ;
++----------------------------------------------------+----------------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Sun Apr 28 13:54:34 2024
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off Design1 -c Design1
+Info: Using vector source file "C:/Users/vdi/Desktop/esdc/simulation_game.vwf"
+Warning: Wrong node type and/or width for node "|Design1_for_simulation|game:GAME|state" in vector source file. Node in design is of type Enum and of width 1, but node in vector source file is of type 9-Level and of width 1.
+Warning: Signal name "|Design1_for_simulation|game:GAME|state" changed to enum type
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      69.86 %
+Info: Number of transitions in simulation is 2019
+Info: Quartus II Simulator was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 159 megabytes
+    Info: Processing ended: Sun Apr 28 13:54:36 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

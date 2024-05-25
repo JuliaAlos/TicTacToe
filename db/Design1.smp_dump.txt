@@ -1,0 +1,131 @@
+
+State Machine - |P1_BOARD_vga_self|protocol_tx:inst3|state
+Name state.pr_set_TX state.pr_w3 state.pr_s3 state.pr_check_data state.pr_w2 state.pr_s2 state.pr_w1 state.pr_s1 state.pr_tie state.pr_win state.pr_move state.pr_rdy state.pr_wait 
+state.pr_wait 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.pr_rdy 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.pr_move 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.pr_win 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.pr_tie 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.pr_s1 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.pr_w1 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.pr_s2 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.pr_w2 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.pr_check_data 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.pr_s3 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.pr_w3 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.pr_set_TX 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |P1_BOARD_vga_self|rx_module2:inst5|state
+Name state.rx_stop state.rx_shift state.rx_start state.rx_idle 
+state.rx_idle 0 0 0 0 
+state.rx_start 0 0 1 1 
+state.rx_shift 0 1 0 1 
+state.rx_stop 1 0 0 1 
+
+State Machine - |P1_BOARD_vga_self|protocol_rx:inst4|state
+Name state.pr_s_dt state.pr_r3 state.pr_w3 state.pr_s_win state.pr_s_tie state.pr_s_move state.pr_s_rdy state.pr_f_type state.pr_r2 state.pr_w2 state.pr_r1 state.pr_w1 state.pr_ini 
+state.pr_ini 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.pr_w1 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.pr_r1 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.pr_w2 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.pr_r2 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.pr_f_type 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.pr_s_rdy 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.pr_s_move 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.pr_s_tie 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.pr_s_win 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.pr_w3 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.pr_r3 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.pr_s_dt 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |P1_BOARD_vga_self|keypad:inst2|current_state
+Name current_state.check1 current_state.wait1 current_state.kra3 current_state.kra2 current_state.kra1 current_state.kra0 current_state.check0 current_state.wait0 
+current_state.wait0 0 0 0 0 0 0 0 0 
+current_state.check0 0 0 0 0 0 0 1 1 
+current_state.kra0 0 0 0 0 0 1 0 1 
+current_state.kra1 0 0 0 0 1 0 0 1 
+current_state.kra2 0 0 0 1 0 0 0 1 
+current_state.kra3 0 0 1 0 0 0 0 1 
+current_state.wait1 0 1 0 0 0 0 0 1 
+current_state.check1 1 0 0 0 0 0 0 1 
+
+State Machine - |P1_BOARD_vga_self|main:inst|state
+Name state.main_wgame state.main_startgame state.main_read state.main_wait 
+state.main_wait 0 0 0 0 
+state.main_read 0 0 1 1 
+state.main_startgame 0 1 0 1 
+state.main_wgame 1 0 0 1 
+
+State Machine - |P1_BOARD_vga_self|game:inst17|state
+Name state.fr_tie state.fr_lose state.fr_bcd state.wait_move state.g_finish state.end_check state.sd_tie state.sd_win state.sd_move state.check_results state.wtx2 state.check_cell state.read_key state.wait_bcd state.g_new state.check_num state.fr_rdy state.wrdy state.srdy state.wtx state.modify_num state.read_num state.g_num state.g_wait 
+state.g_wait 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.g_num 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.read_num 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.modify_num 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.wtx 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.srdy 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.wrdy 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.fr_rdy 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.check_num 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.g_new 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.wait_bcd 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.read_key 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.check_cell 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.wtx2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.check_results 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.sd_move 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.sd_win 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.sd_tie 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.end_check 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.g_finish 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.wait_move 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.fr_bcd 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.fr_lose 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.fr_tie 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|st_square
+Name st_square.s9c st_square.s9b st_square.s9a st_square.s8c st_square.s8b st_square.s8a st_square.s7c st_square.s7b st_square.s7a st_square.s6c st_square.s6b st_square.s6a st_square.s5c st_square.s5b st_square.s5a st_square.s4c st_square.s4b st_square.s4a st_square.s3c st_square.s3b st_square.s3a st_square.s2c st_square.s2b st_square.s2a st_square.s1c st_square.s1b st_square.s1a 
+st_square.s1a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+st_square.s1b 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+st_square.s1c 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+st_square.s2a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+st_square.s2b 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+st_square.s2c 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+st_square.s3a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+st_square.s3b 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+st_square.s3c 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+st_square.s4a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+st_square.s4b 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+st_square.s4c 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s5a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s5b 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s5c 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s6a 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s6b 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s6c 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s7a 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s7b 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s7c 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s8a 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s8b 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s8c 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s9a 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s9b 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+st_square.s9c 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1|st_write
+Name st_write.s6 st_write.s5 st_write.s4 st_write.s3 st_write.s2 st_write.s1 st_write.s0 
+st_write.s0 0 0 0 0 0 0 0 
+st_write.s1 0 0 0 0 0 1 1 
+st_write.s2 0 0 0 0 1 0 1 
+st_write.s3 0 0 0 1 0 0 1 
+st_write.s4 0 0 1 0 0 0 1 
+st_write.s5 0 1 0 0 0 0 1 
+st_write.s6 1 0 0 0 0 0 1 
+
+State Machine - |P1_BOARD_vga_self|tx_module:inst6|state
+Name state.tx_stop state.tx_shift state.tx_start state.tx_idle 
+state.tx_idle 0 0 0 0 
+state.tx_start 0 0 1 1 
+state.tx_shift 0 1 0 1 
+state.tx_stop 1 0 0 1 

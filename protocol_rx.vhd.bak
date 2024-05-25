@@ -1,0 +1,147 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity protocol_rx is
+	port (
+		clk50, nrst: in std_logic;
+		RDY_RECEIVED, MOVE_RECEIVED, TIE_RECEIVED, WIN_RECEIVED: out std_logic;  -- Frame received.
+		rx_data : in std_logic_vector(7 downto 0);  -- Byte received from the UART RX
+		received_data : out std_logic_vector(3 downto 0);  -- Data received.
+		data_read,new_frame : out std_logic;  -- Flag. Active high if protocol is ready to tx (not transmiting a frame)
+											-- new_frame: active if a new frame is received.
+		rx_new, frame_read : in std_logic  -- Signal from the UART RX. Active if new byte has been received.
+										   -- Frame READ: frame has been read. Frame received has to be deactivated.
+		);
+end protocol_rx;
+
+
+architecture main of protocol_rx is
+	type state_type is (pr_ini, pr_w1, pr_r1, pr_w2, pr_r2, pr_f_type, pr_s_rdy, pr_s_move, pr_s_tie,
+	pr_s_win, pr_w3, pr_r3, pr_s_dt );
+	 
+	 -- Definition of the diferent FRAME TYPE
+	constant RDY_PLAY : std_logic_vector(7 downto 0) := x"A1";
+	constant MOVE : std_logic_vector(7 downto 0) := x"B1";
+	constant WIN : std_logic_vector(7 downto 0) := x"C1";
+	constant TIE : std_logic_vector(7 downto 0) := x"C2";
+	
+	constant FRAME_ID : std_logic_vector(7 downto 0) := x"AA";
+
+	-- Definition of the state register
+	
+	signal state : state_type;
+	
+	-- Definition of the registers in the process unit
+
+	signal frame_type: std_logic_vector(7 downto 0);
+	
+	-- Signals to activate the output flags
+	signal set_RDY_RECEIVED, set_MOVE_RECEIVED, set_TIE_RECEIVED, set_WIN_RECEIVED : std_logic;
+	signal set_new_frame : std_logic;
+	
+begin
+
+PROTOCOL_FSM : process (clk50, nrst) begin
+	if nrst = '0' then
+		state <= pr_ini;
+		received_data <= "0000";
+	elsif clk50'EVENT and clk50 = '1' then
+		case state is
+			when pr_ini => 
+				state <= pr_w1;
+			
+			-- Waiting for frame_ID to arrive
+			when pr_w1 =>
+				if rx_new = '1' then state <= pr_r1;
+				end if;
+
+			-- Frame ID arrived. We do not check it..	
+			-- Data_read should be activated within a combinational system
+			when pr_r1 => 
+				state <= pr_w2;
+				
+			-- Waiting for FRAME TYPE to arive
+			when pr_w2 => 
+				if rx_new = '1' then state <= pr_r2;
+				end if;	
+			-- FRAME TYPE ARRIVED. 
+			-- Data Read should be activated within a combinational system	
+			when pr_r2 => 
+				frame_type <= rx_data(3 downto 0);
+				state <= pr_f_type;
+				
+			-- Checking frame type. If type is data the system read 3 extra bytes.	
+			when pr_f_type => 
+				if frame_type = RDY_PLAY then state <= pr_s_rdy;
+				elsif frame_type = MOVE then state <= pr_s_move;
+				elsif frame_type = TIE then state <= pr_s_tie;
+				elsif frame_type = WIN then state <= pr_s_win;
+				end if;
+				
+			-- Activation of flags if frame is not CODE
+			-- Flags should be activated within a combinational system.
+			when pr_s_rdy =>
+				state <= pr_w3;
+				
+			when pr_s_move =>
+				state <= pr_w3;
+				
+			when pr_s_tie =>
+				state <= pr_w3;
+				
+			when pr_s_win =>
+				state <= pr_w3;
+				
+			-- Data byte should be transmited.
+			-- Waiting for Hundreds to arive
+			when pr_w3 => 
+				if rx_new = '1' then state <= pr_r3;
+				end if;	
+			-- Data Read should be activated within a combinational system	
+			when pr_r3 => 
+				received_data <= rx_data(3 downto 0);
+				state <= pr_s_dt;
+				
+			-- Activation of the new frame Flag
+			-- Activation must be done in a combinational system
+			when pr_s_dt =>
+				state <= pr_w1;	
+			
+			when others =>
+				end case;
+	end if;
+end process;
+
+
+-- Combinational system for the signals that activate
+set_RDY_RECEIVED <= '1' when state = pr_s_rdy else '0'; 
+set_MOVE_RECEIVED <= '1' when state = pr_s_move else '0';
+set_TIE_RECEIVED <= '1' when state = pr_s_tie else '0';
+set_WIN_RECEIVED <= '1' when state = pr_s_win else '0';
+set_new_frame <= '1' when state = pr_s_dt else '0';
+data_read <= '1' when state = pr_r1 or state = pr_r2 or state = pr_r3 else '0';
+
+JK: process(clk50, nrst) begin
+		if nrst = '0' then
+			RDY_RECEIVED <= '0'; 
+			MOVE_RECEIVED <= '0';
+			TIE_RECEIVED <= '0';
+			WIN_RECEIVED <= '0';
+			new_frame <= '0';
+		elsif clk50'EVENT and clk50 = '1' then 
+			if set_RDY_RECEIVED = '1' then RDY_RECEIVED <= '1'; end if;
+			if set_MOVE_RECEIVED = '1' then MOVE_RECEIVED <= '1'; end if;
+			if set_TIE_RECEIVED = '1' then TIE_RECEIVED <= '1'; end if;
+			if set_WIN_RECEIVED = '1' then WIN_RECEIVED <= '1'; end if;
+			if set_new_frame = '1' then new_frame <= '1'; end if;
+			if frame_read = '1' then
+				RDY_RECEIVED <= '0';
+				new_frame <= '0'; 
+				MOVE_RECEIVED <= '0'; 
+				TIE_RECEIVED <= '0';
+				WIN_RECEIVED <= '0';
+			end if;
+		end if;
+	end process;
+		
+end;

@@ -1,0 +1,1126 @@
+Analysis & Synthesis report for Design1
+Tue May 07 18:30:15 2024
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |P1_BOARD_vga_self|protocol_tx:inst3|state
+ 10. State Machine - |P1_BOARD_vga_self|rx_module2:inst5|state
+ 11. State Machine - |P1_BOARD_vga_self|protocol_rx:inst4|state
+ 12. State Machine - |P1_BOARD_vga_self|keypad:inst2|current_state
+ 13. State Machine - |P1_BOARD_vga_self|main:inst|state
+ 14. State Machine - |P1_BOARD_vga_self|game:inst17|state
+ 15. State Machine - |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|st_square
+ 16. State Machine - |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1|st_write
+ 17. State Machine - |P1_BOARD_vga_self|tx_module:inst6|state
+ 18. Registers Removed During Synthesis
+ 19. General Register Statistics
+ 20. Inverted Register Statistics
+ 21. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 22. Source assignments for I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated
+ 23. Source assignments for I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1
+ 24. Parameter Settings for User Entity Instance: I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component
+ 25. Parameter Settings for Inferred Entity Instance: digit_div:inst13|lpm_divide:Mod0
+ 26. Parameter Settings for Inferred Entity Instance: digit_div:inst13|lpm_divide:Div0
+ 27. Parameter Settings for Inferred Entity Instance: digit_div:inst16|lpm_divide:Mod0
+ 28. Parameter Settings for Inferred Entity Instance: digit_div:inst16|lpm_divide:Div0
+ 29. Parameter Settings for Inferred Entity Instance: digit_div:inst15|lpm_divide:Mod0
+ 30. Parameter Settings for Inferred Entity Instance: digit_div:inst15|lpm_divide:Div0
+ 31. Parameter Settings for Inferred Entity Instance: digit_div:inst14|lpm_divide:Mod0
+ 32. Parameter Settings for Inferred Entity Instance: digit_div:inst14|lpm_divide:Div0
+ 33. altsyncram Parameter Settings by Entity Instance
+ 34. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++------------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 07 18:30:15 2024        ;
+; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
+; Revision Name                      ; Design1                                      ;
+; Top-level Entity Name              ; P1_BOARD_vga_self                            ;
+; Family                             ; Cyclone II                                   ;
+; Total logic elements               ; 813                                          ;
+;     Total combinational functions  ; 727                                          ;
+;     Dedicated logic registers      ; 378                                          ;
+; Total registers                    ; 378                                          ;
+; Total pins                         ; 111                                          ;
+; Total virtual pins                 ; 0                                            ;
+; Total memory bits                  ; 98,304                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                            ;
+; Total PLLs                         ; 0                                            ;
++------------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; P1_BOARD_vga_self  ; Design1            ;
+; Family name                                                                ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                                    ; Off                ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 6      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                            ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------+
+; add_generator.vhd                ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/add_generator.vhd          ;
+; bcd7seg.vhd                      ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/bcd7seg.vhd                ;
+; clk_div_two.vhd                  ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/clk_div_two.vhd            ;
+; clk_video.vhd                    ; yes             ; User Wizard-Generated File         ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/clk_video.vhd              ;
+; count4b.vhd                      ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/count4b.vhd                ;
+; f_div.vhd                        ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/f_div.vhd                  ;
+; hex_disps.vhd                    ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/hex_disps.vhd              ;
+; keypad.vhd                       ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/keypad.vhd                 ;
+; keytest_h_v2.vhd                 ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/keytest_h_v2.vhd           ;
+; protocol_rx.vhd                  ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/protocol_rx.vhd            ;
+; protocol_tx.vhd                  ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/protocol_tx.vhd            ;
+; rx_module2.vhd                   ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/rx_module2.vhd             ;
+; square.vhd                       ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/square.vhd                 ;
+; tx_module.vhd                    ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/tx_module.vhd              ;
+; VGA_SYNC.VHD                     ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/VGA_SYNC.VHD               ;
+; Video_Memory.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/Video_Memory.vhd           ;
+; wr_memory.vhd                    ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/wr_memory.vhd              ;
+; game.vhdl                        ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/game.vhdl                  ;
+; main.vhdl                        ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/main.vhdl                  ;
+; registerbank.vhdl                ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/registerbank.vhdl          ;
+; P1_BOARD_vga_self.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/P1_BOARD_vga_self.bdf      ;
+; VGA_visualisation.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/VGA_visualisation.bdf      ;
+; I_O_Manager_VGA.bdf              ; yes             ; User Block Diagram/Schematic File  ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/I_O_Manager_VGA.bdf        ;
+; digit_div.vhd                    ; yes             ; User VHDL File                     ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/digit_div.vhd              ;
+; altsyncram.tdf                   ; yes             ; Megafunction                       ; c:/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf                          ;
+; db/altsyncram_4jk1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/altsyncram_4jk1.tdf     ;
+; db/altsyncram_fes1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/altsyncram_fes1.tdf     ;
+; db/decode_9oa.tdf                ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/decode_9oa.tdf          ;
+; db/mux_kib.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/mux_kib.tdf             ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_divide.tdf                          ;
+; db/lpm_divide_05m.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/lpm_divide_05m.tdf      ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/sign_div_unsign_7kh.tdf ;
+; db/alt_u_div_gve.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/alt_u_div_gve.tdf       ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/add_sub_lkc.tdf         ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/add_sub_mkc.tdf         ;
+; db/lpm_divide_tcm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/julia.alos/Downloads/project_v4_hoy/project_v4/esdc/db/lpm_divide_tcm.tdf      ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimated Total logic elements              ; 813    ;
+;                                             ;        ;
+; Total combinational functions               ; 727    ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 350    ;
+;     -- 3 input functions                    ; 176    ;
+;     -- <=2 input functions                  ; 201    ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 630    ;
+;     -- arithmetic mode                      ; 97     ;
+;                                             ;        ;
+; Total registers                             ; 378    ;
+;     -- Dedicated logic registers            ; 378    ;
+;     -- I/O registers                        ; 0      ;
+;                                             ;        ;
+; I/O pins                                    ; 111    ;
+; Total memory bits                           ; 98304  ;
+; Maximum fan-out node                        ; KEY[0] ;
+; Maximum fan-out                             ; 249    ;
+; Total fan-out                               ; 4222   ;
+; Average fan-out                             ; 3.40   ;
++---------------------------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                      ;
++---------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                                                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                               ; Library Name ;
++---------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |P1_BOARD_vga_self                                                        ; 727 (0)           ; 378 (0)      ; 98304       ; 0            ; 0       ; 0         ; 111  ; 0            ; |P1_BOARD_vga_self                                                                                                                                                                                ; work         ;
+;    |I_O_Manager_VGA:inst9|                                                ; 256 (0)           ; 152 (0)      ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9                                                                                                                                                          ;              ;
+;       |VGA_visualisation:inst1|                                           ; 224 (0)           ; 152 (0)      ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1                                                                                                                                  ;              ;
+;          |VGA_SYNC:inst2|                                                 ; 47 (47)           ; 74 (74)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|VGA_SYNC:inst2                                                                                                                   ;              ;
+;          |Video_Memory:inst|                                              ; 36 (0)            ; 6 (0)        ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst                                                                                                                ;              ;
+;             |altsyncram:altsyncram_component|                             ; 36 (0)            ; 6 (0)        ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component                                                                                ;              ;
+;                |altsyncram_4jk1:auto_generated|                           ; 36 (0)            ; 6 (0)        ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated                                                 ;              ;
+;                   |altsyncram_fes1:altsyncram1|                           ; 36 (0)            ; 6 (6)        ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1                     ;              ;
+;                      |decode_9oa:decode4|                                 ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1|decode_9oa:decode4  ;              ;
+;                      |decode_9oa:decode_a|                                ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1|decode_9oa:decode_a ;              ;
+;                      |decode_9oa:decode_b|                                ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1|decode_9oa:decode_b ;              ;
+;                      |mux_kib:mux5|                                       ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1|mux_kib:mux5        ;              ;
+;          |clk_div_two:inst9|                                              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|clk_div_two:inst9                                                                                                                ;              ;
+;          |clk_video:inst3|                                                ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|clk_video:inst3                                                                                                                  ;              ;
+;             |clk_video_altclkctrl_6df:clk_video_altclkctrl_6df_component| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|clk_video:inst3|clk_video_altclkctrl_6df:clk_video_altclkctrl_6df_component                                                      ;              ;
+;          |square:inst8|                                                   ; 68 (68)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8                                                                                                                     ;              ;
+;          |wr_memory:inst1|                                                ; 72 (72)           ; 35 (35)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1                                                                                                                  ;              ;
+;       |hex_disps:inst|                                                    ; 32 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst                                                                                                                                           ;              ;
+;          |BCD7seg:display0|                                               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display0                                                                                                                          ;              ;
+;          |BCD7seg:display1|                                               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display1                                                                                                                          ;              ;
+;          |BCD7seg:display2|                                               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display2                                                                                                                          ;              ;
+;          |BCD7seg:display3|                                               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display3                                                                                                                          ;              ;
+;          |BCD7seg:display4|                                               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display4                                                                                                                          ;              ;
+;          |BCD7seg:display5|                                               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display5                                                                                                                          ;              ;
+;          |BCD7seg:display6|                                               ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display6                                                                                                                          ;              ;
+;          |BCD7seg:display7|                                               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display7                                                                                                                          ;              ;
+;    |clk_video:inst10|                                                     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|clk_video:inst10                                                                                                                                                               ;              ;
+;       |clk_video_altclkctrl_6df:clk_video_altclkctrl_6df_component|       ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|clk_video:inst10|clk_video_altclkctrl_6df:clk_video_altclkctrl_6df_component                                                                                                   ;              ;
+;    |digit_div:inst13|                                                     ; 11 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13                                                                                                                                                               ;              ;
+;       |lpm_divide:Div0|                                                   ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Div0                                                                                                                                               ;              ;
+;          |lpm_divide_tcm:auto_generated|                                  ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Div0|lpm_divide_tcm:auto_generated                                                                                                                 ;              ;
+;             |sign_div_unsign_7kh:divider|                                 ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider                                                                                     ;              ;
+;                |alt_u_div_gve:divider|                                    ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_gve:divider                                                               ;              ;
+;       |lpm_divide:Mod0|                                                   ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Mod0                                                                                                                                               ;              ;
+;          |lpm_divide_05m:auto_generated|                                  ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Mod0|lpm_divide_05m:auto_generated                                                                                                                 ;              ;
+;             |sign_div_unsign_7kh:divider|                                 ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Mod0|lpm_divide_05m:auto_generated|sign_div_unsign_7kh:divider                                                                                     ;              ;
+;                |alt_u_div_gve:divider|                                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Mod0|lpm_divide_05m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_gve:divider                                                               ;              ;
+;    |digit_div:inst14|                                                     ; 11 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14                                                                                                                                                               ;              ;
+;       |lpm_divide:Div0|                                                   ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Div0                                                                                                                                               ;              ;
+;          |lpm_divide_tcm:auto_generated|                                  ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Div0|lpm_divide_tcm:auto_generated                                                                                                                 ;              ;
+;             |sign_div_unsign_7kh:divider|                                 ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider                                                                                     ;              ;
+;                |alt_u_div_gve:divider|                                    ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_gve:divider                                                               ;              ;
+;       |lpm_divide:Mod0|                                                   ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Mod0                                                                                                                                               ;              ;
+;          |lpm_divide_05m:auto_generated|                                  ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Mod0|lpm_divide_05m:auto_generated                                                                                                                 ;              ;
+;             |sign_div_unsign_7kh:divider|                                 ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Mod0|lpm_divide_05m:auto_generated|sign_div_unsign_7kh:divider                                                                                     ;              ;
+;                |alt_u_div_gve:divider|                                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Mod0|lpm_divide_05m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_gve:divider                                                               ;              ;
+;    |digit_div:inst15|                                                     ; 11 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15                                                                                                                                                               ;              ;
+;       |lpm_divide:Div0|                                                   ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Div0                                                                                                                                               ;              ;
+;          |lpm_divide_tcm:auto_generated|                                  ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Div0|lpm_divide_tcm:auto_generated                                                                                                                 ;              ;
+;             |sign_div_unsign_7kh:divider|                                 ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider                                                                                     ;              ;
+;                |alt_u_div_gve:divider|                                    ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_gve:divider                                                               ;              ;
+;       |lpm_divide:Mod0|                                                   ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Mod0                                                                                                                                               ;              ;
+;          |lpm_divide_05m:auto_generated|                                  ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Mod0|lpm_divide_05m:auto_generated                                                                                                                 ;              ;
+;             |sign_div_unsign_7kh:divider|                                 ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Mod0|lpm_divide_05m:auto_generated|sign_div_unsign_7kh:divider                                                                                     ;              ;
+;                |alt_u_div_gve:divider|                                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Mod0|lpm_divide_05m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_gve:divider                                                               ;              ;
+;    |digit_div:inst16|                                                     ; 11 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16                                                                                                                                                               ;              ;
+;       |lpm_divide:Div0|                                                   ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Div0                                                                                                                                               ;              ;
+;          |lpm_divide_tcm:auto_generated|                                  ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Div0|lpm_divide_tcm:auto_generated                                                                                                                 ;              ;
+;             |sign_div_unsign_7kh:divider|                                 ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider                                                                                     ;              ;
+;                |alt_u_div_gve:divider|                                    ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Div0|lpm_divide_tcm:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_gve:divider                                                               ;              ;
+;       |lpm_divide:Mod0|                                                   ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Mod0                                                                                                                                               ;              ;
+;          |lpm_divide_05m:auto_generated|                                  ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Mod0|lpm_divide_05m:auto_generated                                                                                                                 ;              ;
+;             |sign_div_unsign_7kh:divider|                                 ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Mod0|lpm_divide_05m:auto_generated|sign_div_unsign_7kh:divider                                                                                     ;              ;
+;                |alt_u_div_gve:divider|                                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Mod0|lpm_divide_05m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_gve:divider                                                               ;              ;
+;    |f_div:inst1|                                                          ; 22 (22)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|f_div:inst1                                                                                                                                                                    ;              ;
+;    |game:inst17|                                                          ; 194 (194)         ; 79 (79)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|game:inst17                                                                                                                                                                    ;              ;
+;    |keypad:inst2|                                                         ; 45 (41)           ; 16 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|keypad:inst2                                                                                                                                                                   ;              ;
+;       |count4b:counter|                                                   ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|keypad:inst2|count4b:counter                                                                                                                                                   ;              ;
+;    |keytest_h_v2:inst7|                                                   ; 8 (8)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|keytest_h_v2:inst7                                                                                                                                                             ;              ;
+;    |main:inst|                                                            ; 8 (8)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|main:inst                                                                                                                                                                      ;              ;
+;    |protocol_rx:inst4|                                                    ; 28 (28)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|protocol_rx:inst4                                                                                                                                                              ;              ;
+;    |protocol_tx:inst3|                                                    ; 33 (33)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|protocol_tx:inst3                                                                                                                                                              ;              ;
+;    |rx_module2:inst5|                                                     ; 44 (44)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|rx_module2:inst5                                                                                                                                                               ;              ;
+;    |statistics:inst8|                                                     ; 17 (17)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|statistics:inst8                                                                                                                                                               ;              ;
+;    |tx_module:inst6|                                                      ; 28 (28)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P1_BOARD_vga_self|tx_module:inst6                                                                                                                                                                ;              ;
++---------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                         ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                                                                                                                                  ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+; I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1|ALTSYNCRAM ; AUTO ; True Dual Port ; 32768        ; 3            ; 32768        ; 3            ; 98304 ; None ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|protocol_tx:inst3|state                                                                                                                                                                   ;
++---------------------+-----------------+-------------+-------------+---------------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+--------------+---------------+
+; Name                ; state.pr_set_TX ; state.pr_w3 ; state.pr_s3 ; state.pr_check_data ; state.pr_w2 ; state.pr_s2 ; state.pr_w1 ; state.pr_s1 ; state.pr_tie ; state.pr_win ; state.pr_move ; state.pr_rdy ; state.pr_wait ;
++---------------------+-----------------+-------------+-------------+---------------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+--------------+---------------+
+; state.pr_wait       ; 0               ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0            ; 0             ;
+; state.pr_rdy        ; 0               ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 1            ; 1             ;
+; state.pr_move       ; 0               ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 1             ; 0            ; 1             ;
+; state.pr_win        ; 0               ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 0           ; 0            ; 1            ; 0             ; 0            ; 1             ;
+; state.pr_tie        ; 0               ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 0           ; 1            ; 0            ; 0             ; 0            ; 1             ;
+; state.pr_s1         ; 0               ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 1           ; 0            ; 0            ; 0             ; 0            ; 1             ;
+; state.pr_w1         ; 0               ; 0           ; 0           ; 0                   ; 0           ; 0           ; 1           ; 0           ; 0            ; 0            ; 0             ; 0            ; 1             ;
+; state.pr_s2         ; 0               ; 0           ; 0           ; 0                   ; 0           ; 1           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0            ; 1             ;
+; state.pr_w2         ; 0               ; 0           ; 0           ; 0                   ; 1           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0            ; 1             ;
+; state.pr_check_data ; 0               ; 0           ; 0           ; 1                   ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0            ; 1             ;
+; state.pr_s3         ; 0               ; 0           ; 1           ; 0                   ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0            ; 1             ;
+; state.pr_w3         ; 0               ; 1           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0            ; 1             ;
+; state.pr_set_TX     ; 1               ; 0           ; 0           ; 0                   ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0            ; 1             ;
++---------------------+-----------------+-------------+-------------+---------------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+--------------+---------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|rx_module2:inst5|state                        ;
++----------------+---------------+----------------+----------------+---------------+
+; Name           ; state.rx_stop ; state.rx_shift ; state.rx_start ; state.rx_idle ;
++----------------+---------------+----------------+----------------+---------------+
+; state.rx_idle  ; 0             ; 0              ; 0              ; 0             ;
+; state.rx_start ; 0             ; 0              ; 1              ; 1             ;
+; state.rx_shift ; 0             ; 1              ; 0              ; 1             ;
+; state.rx_stop  ; 1             ; 0              ; 0              ; 1             ;
++----------------+---------------+----------------+----------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|protocol_rx:inst4|state                                                                                                                                                                ;
++-----------------+---------------+-------------+-------------+----------------+----------------+-----------------+----------------+-----------------+-------------+-------------+-------------+-------------+--------------+
+; Name            ; state.pr_s_dt ; state.pr_r3 ; state.pr_w3 ; state.pr_s_win ; state.pr_s_tie ; state.pr_s_move ; state.pr_s_rdy ; state.pr_f_type ; state.pr_r2 ; state.pr_w2 ; state.pr_r1 ; state.pr_w1 ; state.pr_ini ;
++-----------------+---------------+-------------+-------------+----------------+----------------+-----------------+----------------+-----------------+-------------+-------------+-------------+-------------+--------------+
+; state.pr_ini    ; 0             ; 0           ; 0           ; 0              ; 0              ; 0               ; 0              ; 0               ; 0           ; 0           ; 0           ; 0           ; 0            ;
+; state.pr_w1     ; 0             ; 0           ; 0           ; 0              ; 0              ; 0               ; 0              ; 0               ; 0           ; 0           ; 0           ; 1           ; 1            ;
+; state.pr_r1     ; 0             ; 0           ; 0           ; 0              ; 0              ; 0               ; 0              ; 0               ; 0           ; 0           ; 1           ; 0           ; 1            ;
+; state.pr_w2     ; 0             ; 0           ; 0           ; 0              ; 0              ; 0               ; 0              ; 0               ; 0           ; 1           ; 0           ; 0           ; 1            ;
+; state.pr_r2     ; 0             ; 0           ; 0           ; 0              ; 0              ; 0               ; 0              ; 0               ; 1           ; 0           ; 0           ; 0           ; 1            ;
+; state.pr_f_type ; 0             ; 0           ; 0           ; 0              ; 0              ; 0               ; 0              ; 1               ; 0           ; 0           ; 0           ; 0           ; 1            ;
+; state.pr_s_rdy  ; 0             ; 0           ; 0           ; 0              ; 0              ; 0               ; 1              ; 0               ; 0           ; 0           ; 0           ; 0           ; 1            ;
+; state.pr_s_move ; 0             ; 0           ; 0           ; 0              ; 0              ; 1               ; 0              ; 0               ; 0           ; 0           ; 0           ; 0           ; 1            ;
+; state.pr_s_tie  ; 0             ; 0           ; 0           ; 0              ; 1              ; 0               ; 0              ; 0               ; 0           ; 0           ; 0           ; 0           ; 1            ;
+; state.pr_s_win  ; 0             ; 0           ; 0           ; 1              ; 0              ; 0               ; 0              ; 0               ; 0           ; 0           ; 0           ; 0           ; 1            ;
+; state.pr_w3     ; 0             ; 0           ; 1           ; 0              ; 0              ; 0               ; 0              ; 0               ; 0           ; 0           ; 0           ; 0           ; 1            ;
+; state.pr_r3     ; 0             ; 1           ; 0           ; 0              ; 0              ; 0               ; 0              ; 0               ; 0           ; 0           ; 0           ; 0           ; 1            ;
+; state.pr_s_dt   ; 1             ; 0           ; 0           ; 0              ; 0              ; 0               ; 0              ; 0               ; 0           ; 0           ; 0           ; 0           ; 1            ;
++-----------------+---------------+-------------+-------------+----------------+----------------+-----------------+----------------+-----------------+-------------+-------------+-------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|keypad:inst2|current_state                                                                                                                                      ;
++----------------------+----------------------+---------------------+--------------------+--------------------+--------------------+--------------------+----------------------+---------------------+
+; Name                 ; current_state.check1 ; current_state.wait1 ; current_state.kra3 ; current_state.kra2 ; current_state.kra1 ; current_state.kra0 ; current_state.check0 ; current_state.wait0 ;
++----------------------+----------------------+---------------------+--------------------+--------------------+--------------------+--------------------+----------------------+---------------------+
+; current_state.wait0  ; 0                    ; 0                   ; 0                  ; 0                  ; 0                  ; 0                  ; 0                    ; 0                   ;
+; current_state.check0 ; 0                    ; 0                   ; 0                  ; 0                  ; 0                  ; 0                  ; 1                    ; 1                   ;
+; current_state.kra0   ; 0                    ; 0                   ; 0                  ; 0                  ; 0                  ; 1                  ; 0                    ; 1                   ;
+; current_state.kra1   ; 0                    ; 0                   ; 0                  ; 0                  ; 1                  ; 0                  ; 0                    ; 1                   ;
+; current_state.kra2   ; 0                    ; 0                   ; 0                  ; 1                  ; 0                  ; 0                  ; 0                    ; 1                   ;
+; current_state.kra3   ; 0                    ; 0                   ; 1                  ; 0                  ; 0                  ; 0                  ; 0                    ; 1                   ;
+; current_state.wait1  ; 0                    ; 1                   ; 0                  ; 0                  ; 0                  ; 0                  ; 0                    ; 1                   ;
+; current_state.check1 ; 1                    ; 0                   ; 0                  ; 0                  ; 0                  ; 0                  ; 0                    ; 1                   ;
++----------------------+----------------------+---------------------+--------------------+--------------------+--------------------+--------------------+----------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|main:inst|state                                                 ;
++----------------------+------------------+----------------------+-----------------+-----------------+
+; Name                 ; state.main_wgame ; state.main_startgame ; state.main_read ; state.main_wait ;
++----------------------+------------------+----------------------+-----------------+-----------------+
+; state.main_wait      ; 0                ; 0                    ; 0               ; 0               ;
+; state.main_read      ; 0                ; 0                    ; 1               ; 1               ;
+; state.main_startgame ; 0                ; 1                    ; 0               ; 1               ;
+; state.main_wgame     ; 1                ; 0                    ; 0               ; 1               ;
++----------------------+------------------+----------------------+-----------------+-----------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|game:inst17|state                                                                                                                                                                                                                                                                                                                                                               ;
++---------------------+--------------+---------------+--------------+-----------------+----------------+-----------------+--------------+--------------+---------------+---------------------+------------+------------------+----------------+----------------+-------------+-----------------+--------------+------------+------------+-----------+------------------+----------------+-------------+--------------+
+; Name                ; state.fr_tie ; state.fr_lose ; state.fr_bcd ; state.wait_move ; state.g_finish ; state.end_check ; state.sd_tie ; state.sd_win ; state.sd_move ; state.check_results ; state.wtx2 ; state.check_cell ; state.read_key ; state.wait_bcd ; state.g_new ; state.check_num ; state.fr_rdy ; state.wrdy ; state.srdy ; state.wtx ; state.modify_num ; state.read_num ; state.g_num ; state.g_wait ;
++---------------------+--------------+---------------+--------------+-----------------+----------------+-----------------+--------------+--------------+---------------+---------------------+------------+------------------+----------------+----------------+-------------+-----------------+--------------+------------+------------+-----------+------------------+----------------+-------------+--------------+
+; state.g_wait        ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 0            ;
+; state.g_num         ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 1           ; 1            ;
+; state.read_num      ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 1              ; 0           ; 1            ;
+; state.modify_num    ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 1                ; 0              ; 0           ; 1            ;
+; state.wtx           ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 1         ; 0                ; 0              ; 0           ; 1            ;
+; state.srdy          ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 1          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.wrdy          ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 1          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.fr_rdy        ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 1            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.check_num     ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 1               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.g_new         ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 1           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.wait_bcd      ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 1              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.read_key      ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 1              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.check_cell    ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 1                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.wtx2          ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 1          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.check_results ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 1                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.sd_move       ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 1             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.sd_win        ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 1            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.sd_tie        ; 0            ; 0             ; 0            ; 0               ; 0              ; 0               ; 1            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.end_check     ; 0            ; 0             ; 0            ; 0               ; 0              ; 1               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.g_finish      ; 0            ; 0             ; 0            ; 0               ; 1              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.wait_move     ; 0            ; 0             ; 0            ; 1               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.fr_bcd        ; 0            ; 0             ; 1            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.fr_lose       ; 0            ; 1             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
+; state.fr_tie        ; 1            ; 0             ; 0            ; 0               ; 0              ; 0               ; 0            ; 0            ; 0             ; 0                   ; 0          ; 0                ; 0              ; 0              ; 0           ; 0               ; 0            ; 0          ; 0          ; 0         ; 0                ; 0              ; 0           ; 1            ;
++---------------------+--------------+---------------+--------------+-----------------+----------------+-----------------+--------------+--------------+---------------+---------------------+------------+------------------+----------------+----------------+-------------+-----------------+--------------+------------+------------+-----------+------------------+----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|st_square                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+; Name          ; st_square.s9c ; st_square.s9b ; st_square.s9a ; st_square.s8c ; st_square.s8b ; st_square.s8a ; st_square.s7c ; st_square.s7b ; st_square.s7a ; st_square.s6c ; st_square.s6b ; st_square.s6a ; st_square.s5c ; st_square.s5b ; st_square.s5a ; st_square.s4c ; st_square.s4b ; st_square.s4a ; st_square.s3c ; st_square.s3b ; st_square.s3a ; st_square.s2c ; st_square.s2b ; st_square.s2a ; st_square.s1c ; st_square.s1b ; st_square.s1a ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+; st_square.s1a ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ;
+; st_square.s1b ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ;
+; st_square.s1c ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ;
+; st_square.s2a ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ;
+; st_square.s2b ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s2c ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s3a ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s3b ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s3c ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s4a ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s4b ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s4c ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s5a ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s5b ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s5c ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s6a ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s6b ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s6c ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s7a ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s7b ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s7c ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s8a ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s8b ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s8c ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s9a ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s9b ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; st_square.s9c ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1|st_write     ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; Name        ; st_write.s6 ; st_write.s5 ; st_write.s4 ; st_write.s3 ; st_write.s2 ; st_write.s1 ; st_write.s0 ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; st_write.s0 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ;
+; st_write.s1 ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 1           ;
+; st_write.s2 ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 1           ;
+; st_write.s3 ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 1           ;
+; st_write.s4 ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 1           ;
+; st_write.s5 ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; st_write.s6 ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------+
+; State Machine - |P1_BOARD_vga_self|tx_module:inst6|state                         ;
++----------------+---------------+----------------+----------------+---------------+
+; Name           ; state.tx_stop ; state.tx_shift ; state.tx_start ; state.tx_idle ;
++----------------+---------------+----------------+----------------+---------------+
+; state.tx_idle  ; 0             ; 0              ; 0              ; 0             ;
+; state.tx_start ; 0             ; 0              ; 1              ; 1             ;
+; state.tx_shift ; 0             ; 1              ; 0              ; 1             ;
+; state.tx_stop  ; 1             ; 0              ; 0              ; 1             ;
++----------------+---------------+----------------+----------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                     ;
++------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+; Register name                                                          ; Reason for Removal                                                            ;
++------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+; protocol_tx:inst3|frame_type[7]                                        ; Stuck at VCC due to stuck port data_in                                        ;
+; protocol_tx:inst3|frame_type[2..3]                                     ; Stuck at GND due to stuck port data_in                                        ;
+; I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|x_t[1..4,7] ; Stuck at GND due to stuck port data_in                                        ;
+; I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|y_t[0,3]    ; Stuck at GND due to stuck port data_in                                        ;
+; I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|y_t[4]      ; Merged with I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|x_t[0] ;
+; I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|y_t[1]      ; Merged with I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|y_t[5] ;
+; Total Number of Removed Registers = 12                                 ;                                                                               ;
++------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 378   ;
+; Number of registers using Synchronous Clear  ; 74    ;
+; Number of registers using Synchronous Load   ; 13    ;
+; Number of registers using Asynchronous Clear ; 126   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 131   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; tx_module:inst6|tx                     ; 1       ;
+; tx_module:inst6|tx_empty               ; 10      ;
+; protocol_tx:inst3|ready_to_TX          ; 7       ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |P1_BOARD_vga_self|statistics:inst8|Games_int[3]                                               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |P1_BOARD_vga_self|game:inst17|num_cell[3]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |P1_BOARD_vga_self|game:inst17|opp_num[3]                                                      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1|address_t[11] ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1|address_t[14] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |P1_BOARD_vga_self|game:inst17|total_games[0]                                                  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |P1_BOARD_vga_self|protocol_tx:inst3|tx_data[2]                                                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |P1_BOARD_vga_self|protocol_tx:inst3|tx_data[0]                                                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |P1_BOARD_vga_self|game:inst17|num[3]                                                          ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1|address_t[4]  ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1|address_t[5]  ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |P1_BOARD_vga_self|game:inst17|opp_cells[2]                                                    ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |P1_BOARD_vga_self|game:inst17|send_data[3]                                                    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |P1_BOARD_vga_self|rx_module2:inst5|baud[1]                                                    ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 3 LEs                ; 15 LEs                 ; Yes        ; |P1_BOARD_vga_self|rx_module2:inst5|bit_count[0]                                               ;
+; 20:1               ; 9 bits    ; 117 LEs       ; 63 LEs               ; 54 LEs                 ; Yes        ; |P1_BOARD_vga_self|game:inst17|selected_cell[7]                                                ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; Yes        ; |P1_BOARD_vga_self|keytest_h_v2:inst7|keycode_int[2]                                           ;
+; 28:1               ; 2 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8|color_t[1]       ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |P1_BOARD_vga_self|tx_module:inst6|bit_count                                                   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display0|HEX[5]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display1|HEX[5]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display2|HEX[6]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display3|HEX[5]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display4|HEX[6]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display5|HEX[5]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display6|HEX[5]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display7|HEX[6]                ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |P1_BOARD_vga_self|main:inst|state                                                             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |P1_BOARD_vga_self|keypad:inst2|next_state.check1                                              ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |P1_BOARD_vga_self|tx_module:inst6|Selector8                                                   ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |P1_BOARD_vga_self|rx_module2:inst5|Selector7                                                  ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |P1_BOARD_vga_self|rx_module2:inst5|Selector8                                                  ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |P1_BOARD_vga_self|tx_module:inst6|Selector7                                                   ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |P1_BOARD_vga_self|protocol_rx:inst4|Selector0                                                 ;
+; 15:1               ; 5 bits    ; 50 LEs        ; 30 LEs               ; 20 LEs                 ; No         ; |P1_BOARD_vga_self|game:inst17|state                                                           ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 8 LEs                ; 14 LEs                 ; No         ; |P1_BOARD_vga_self|game:inst17|state                                                           ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 8 LEs                ; 14 LEs                 ; No         ; |P1_BOARD_vga_self|game:inst17|state                                                           ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 6 LEs                ; 16 LEs                 ; No         ; |P1_BOARD_vga_self|game:inst17|state                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                      ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                       ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1 ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                                                  ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                                                   ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                             ;
++------------------------------------+----------------------+----------------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                          ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                                     ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                                   ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                          ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                                          ;
+; WIDTH_A                            ; 3                    ; Signed Integer                                                                   ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                                                                   ;
+; NUMWORDS_A                         ; 32768                ; Signed Integer                                                                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                          ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                          ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                          ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                          ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                          ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                          ;
+; WIDTH_B                            ; 3                    ; Signed Integer                                                                   ;
+; WIDTHAD_B                          ; 15                   ; Signed Integer                                                                   ;
+; NUMWORDS_B                         ; 32768                ; Signed Integer                                                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                          ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                          ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                                          ;
+; OUTDATA_REG_B                      ; CLOCK1               ; Untyped                                                                          ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                          ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                          ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                          ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                          ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                          ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                          ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                          ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                          ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                          ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                          ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                          ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                          ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                                                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                                                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                          ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                          ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                                                          ;
+; CBXI_PARAMETER                     ; altsyncram_4jk1      ; Untyped                                                                          ;
++------------------------------------+----------------------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: digit_div:inst13|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_05m ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: digit_div:inst13|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_tcm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: digit_div:inst16|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_05m ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: digit_div:inst16|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_tcm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: digit_div:inst15|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_05m ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: digit_div:inst15|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_tcm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: digit_div:inst14|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_05m ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: digit_div:inst14|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_tcm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                            ;
++-------------------------------------------+-------------------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                           ;
++-------------------------------------------+-------------------------------------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                                               ;
+; Entity Instance                           ; I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                                       ;
+;     -- WIDTH_A                            ; 3                                                                                               ;
+;     -- NUMWORDS_A                         ; 32768                                                                                           ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                    ;
+;     -- WIDTH_B                            ; 3                                                                                               ;
+;     -- NUMWORDS_B                         ; 32768                                                                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                          ;
+;     -- OUTDATA_REG_B                      ; CLOCK1                                                                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                       ;
++-------------------------------------------+-------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Tue May 07 18:30:11 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Design1 -c Design1
+Info: Found 2 design units, including 1 entities, in source file add_generator.vhd
+    Info: Found design unit 1: add_generator-a
+    Info: Found entity 1: add_generator
+Info: Found 2 design units, including 1 entities, in source file bcd7seg.vhd
+    Info: Found design unit 1: BCD7seg-behaviour
+    Info: Found entity 1: BCD7seg
+Info: Found 2 design units, including 1 entities, in source file clk_div_two.vhd
+    Info: Found design unit 1: clk_div_two-simple
+    Info: Found entity 1: clk_div_two
+Info: Found 4 design units, including 2 entities, in source file clk_video.vhd
+    Info: Found design unit 1: clk_video_altclkctrl_6df-RTL
+    Info: Found design unit 2: clk_video-RTL
+    Info: Found entity 1: clk_video_altclkctrl_6df
+    Info: Found entity 2: clk_video
+Info: Found 2 design units, including 1 entities, in source file count4b.vhd
+    Info: Found design unit 1: count4b-arc_count4b
+    Info: Found entity 1: count4b
+Info: Found 2 design units, including 1 entities, in source file f_div.vhd
+    Info: Found design unit 1: f_div-dni
+    Info: Found entity 1: f_div
+Info: Found 2 design units, including 1 entities, in source file hex_disps.vhd
+    Info: Found design unit 1: hex_disps-struct
+    Info: Found entity 1: hex_disps
+Info: Found 2 design units, including 1 entities, in source file keypad.vhd
+    Info: Found design unit 1: keypad-arc_keypad
+    Info: Found entity 1: keypad
+Info: Found 2 design units, including 1 entities, in source file keytest_h_v2.vhd
+    Info: Found design unit 1: keytest_h_v2-main
+    Info: Found entity 1: keytest_h_v2
+Info: Found 2 design units, including 1 entities, in source file protocol_rx.vhd
+    Info: Found design unit 1: protocol_rx-main
+    Info: Found entity 1: protocol_rx
+Info: Found 2 design units, including 1 entities, in source file protocol_tx.vhd
+    Info: Found design unit 1: protocol_tx-main
+    Info: Found entity 1: protocol_tx
+Info: Found 2 design units, including 1 entities, in source file rx_module.vhd
+    Info: Found design unit 1: rx_module-main
+    Info: Found entity 1: rx_module
+Info: Found 2 design units, including 1 entities, in source file rx_module2.vhd
+    Info: Found design unit 1: rx_module2-main
+    Info: Found entity 1: rx_module2
+Info: Found 2 design units, including 1 entities, in source file square.vhd
+    Info: Found design unit 1: square-functional
+    Info: Found entity 1: square
+Info: Found 2 design units, including 1 entities, in source file tx_module.vhd
+    Info: Found design unit 1: tx_module-main
+    Info: Found entity 1: tx_module
+Info: Found 2 design units, including 1 entities, in source file vga_sync.vhd
+    Info: Found design unit 1: VGA_SYNC-a
+    Info: Found entity 1: VGA_SYNC
+Info: Found 2 design units, including 1 entities, in source file video_memory.vhd
+    Info: Found design unit 1: video_memory-SYN
+    Info: Found entity 1: Video_Memory
+Info: Found 2 design units, including 1 entities, in source file wr_memory.vhd
+    Info: Found design unit 1: wr_memory-functional
+    Info: Found entity 1: wr_memory
+Info: Found 2 design units, including 1 entities, in source file game.vhdl
+    Info: Found design unit 1: game-dev4
+    Info: Found entity 1: game
+Info: Found 2 design units, including 1 entities, in source file main.vhdl
+    Info: Found design unit 1: main-dev3
+    Info: Found entity 1: main
+Info: Found 2 design units, including 1 entities, in source file registerbank.vhdl
+    Info: Found design unit 1: statistics-dev2
+    Info: Found entity 1: statistics
+Info: Found 1 design units, including 1 entities, in source file p1_board_vga_self.bdf
+    Info: Found entity 1: P1_BOARD_vga_self
+Info: Found 1 design units, including 1 entities, in source file vga_test_board.bdf
+    Info: Found entity 1: VGA_TEST_BOARD
+Info: Found 1 design units, including 1 entities, in source file vga_visualisation.bdf
+    Info: Found entity 1: VGA_visualisation
+Info: Found 1 design units, including 1 entities, in source file txmodule.bdf
+    Info: Found entity 1: TXmodule
+Info: Found 1 design units, including 1 entities, in source file rxmodule.bdf
+    Info: Found entity 1: RXmodule
+Info: Found 1 design units, including 1 entities, in source file p1_board_vga.bdf
+    Info: Found entity 1: P1_BOARD_vga
+Info: Found 1 design units, including 1 entities, in source file i_o_manager_vga.bdf
+    Info: Found entity 1: I_O_Manager_VGA
+Info: Found 1 design units, including 1 entities, in source file keyboard.bdf
+    Info: Found entity 1: keyboard
+Info: Found 1 design units, including 1 entities, in source file design1_for_simulation.bdf
+    Info: Found entity 1: Design1_for_simulation
+Info: Found 1 design units, including 1 entities, in source file simulation_two_players.bdf
+    Info: Found entity 1: Simulation_Two_Players
+Info: Found 2 design units, including 1 entities, in source file digit_div.vhd
+    Info: Found design unit 1: digit_div-dev5
+    Info: Found entity 1: digit_div
+Info: Found 1 design units, including 1 entities, in source file main_sim.bdf
+    Info: Found entity 1: Main_sim
+Info: Found 1 design units, including 1 entities, in source file satatistic_sim.bdf
+    Info: Found entity 1: satatistic_sim
+Info: Found 1 design units, including 1 entities, in source file comms_sim.bdf
+    Info: Found entity 1: comms_sim
+Info: Found 1 design units, including 1 entities, in source file game_sim.bdf
+    Info: Found entity 1: game_sim
+Info: Found 1 design units, including 1 entities, in source file player.bdf
+    Info: Found entity 1: player
+Info: Elaborating entity "P1_BOARD_vga_self" for the top level hierarchy
+Warning: Not all bits in bus "LED_GREEN[7..0]" are used
+Info: Elaborating entity "tx_module" for hierarchy "tx_module:inst6"
+Info: Elaborating entity "clk_video" for hierarchy "clk_video:inst10"
+Info: Elaborating entity "clk_video_altclkctrl_6df" for hierarchy "clk_video:inst10|clk_video_altclkctrl_6df:clk_video_altclkctrl_6df_component"
+Info: Elaborating entity "f_div" for hierarchy "f_div:inst1"
+Info: Elaborating entity "I_O_Manager_VGA" for hierarchy "I_O_Manager_VGA:inst9"
+Info: Elaborating entity "VGA_visualisation" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1"
+Info: Elaborating entity "VGA_SYNC" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|VGA_SYNC:inst2"
+Info: Elaborating entity "clk_div_two" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|clk_div_two:inst9"
+Info: Elaborating entity "Video_Memory" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst"
+Info: Elaborating entity "altsyncram" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component"
+Info: Elaborated megafunction instantiation "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component"
+Info: Instantiated megafunction "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component" with the following parameter:
+    Info: Parameter "address_reg_b" = "CLOCK1"
+    Info: Parameter "clock_enable_input_a" = "BYPASS"
+    Info: Parameter "clock_enable_input_b" = "BYPASS"
+    Info: Parameter "clock_enable_output_a" = "BYPASS"
+    Info: Parameter "clock_enable_output_b" = "BYPASS"
+    Info: Parameter "intended_device_family" = "Cyclone II"
+    Info: Parameter "lpm_type" = "altsyncram"
+    Info: Parameter "numwords_a" = "32768"
+    Info: Parameter "numwords_b" = "32768"
+    Info: Parameter "operation_mode" = "DUAL_PORT"
+    Info: Parameter "outdata_aclr_b" = "NONE"
+    Info: Parameter "outdata_reg_b" = "CLOCK1"
+    Info: Parameter "power_up_uninitialized" = "FALSE"
+    Info: Parameter "widthad_a" = "15"
+    Info: Parameter "widthad_b" = "15"
+    Info: Parameter "width_a" = "3"
+    Info: Parameter "width_b" = "3"
+    Info: Parameter "width_byteena_a" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_4jk1.tdf
+    Info: Found entity 1: altsyncram_4jk1
+Info: Elaborating entity "altsyncram_4jk1" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_fes1.tdf
+    Info: Found entity 1: altsyncram_fes1
+Info: Elaborating entity "altsyncram_fes1" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1"
+Warning: Variable or input pin "clocken1" is defined but never used
+Info: Found 1 design units, including 1 entities, in source file db/decode_9oa.tdf
+    Info: Found entity 1: decode_9oa
+Info: Elaborating entity "decode_9oa" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1|decode_9oa:decode3"
+Info: Elaborating entity "decode_9oa" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1|decode_9oa:decode_a"
+Info: Found 1 design units, including 1 entities, in source file db/mux_kib.tdf
+    Info: Found entity 1: mux_kib
+Info: Elaborating entity "mux_kib" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component|altsyncram_4jk1:auto_generated|altsyncram_fes1:altsyncram1|mux_kib:mux5"
+Info: Elaborating entity "wr_memory" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|wr_memory:inst1"
+Info: Elaborating entity "square" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|square:inst8"
+Info: Elaborating entity "add_generator" for hierarchy "I_O_Manager_VGA:inst9|VGA_visualisation:inst1|add_generator:inst7"
+Info: Elaborating entity "hex_disps" for hierarchy "I_O_Manager_VGA:inst9|hex_disps:inst"
+Info: Elaborating entity "BCD7seg" for hierarchy "I_O_Manager_VGA:inst9|hex_disps:inst|BCD7seg:display0"
+Info: Elaborating entity "game" for hierarchy "game:inst17"
+Info: Elaborating entity "main" for hierarchy "main:inst"
+Info: Elaborating entity "keytest_h_v2" for hierarchy "keytest_h_v2:inst7"
+Info: Elaborating entity "keypad" for hierarchy "keypad:inst2"
+Info: Elaborating entity "count4b" for hierarchy "keypad:inst2|count4b:counter"
+Info: Elaborating entity "protocol_rx" for hierarchy "protocol_rx:inst4"
+Info: Elaborating entity "rx_module2" for hierarchy "rx_module2:inst5"
+Info: Elaborating entity "protocol_tx" for hierarchy "protocol_tx:inst3"
+Info: Elaborating entity "digit_div" for hierarchy "digit_div:inst13"
+Info: Elaborating entity "statistics" for hierarchy "statistics:inst8"
+Info: Inferred 8 megafunctions from design logic
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "digit_div:inst13|Mod0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "digit_div:inst13|Div0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "digit_div:inst16|Mod0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "digit_div:inst16|Div0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "digit_div:inst15|Mod0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "digit_div:inst15|Div0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "digit_div:inst14|Mod0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "digit_div:inst14|Div0"
+Info: Elaborated megafunction instantiation "digit_div:inst13|lpm_divide:Mod0"
+Info: Instantiated megafunction "digit_div:inst13|lpm_divide:Mod0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "4"
+    Info: Parameter "LPM_WIDTHD" = "4"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_05m.tdf
+    Info: Found entity 1: lpm_divide_05m
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info: Found entity 1: sign_div_unsign_7kh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_gve.tdf
+    Info: Found entity 1: alt_u_div_gve
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info: Found entity 1: add_sub_lkc
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info: Found entity 1: add_sub_mkc
+Info: Elaborated megafunction instantiation "digit_div:inst13|lpm_divide:Div0"
+Info: Instantiated megafunction "digit_div:inst13|lpm_divide:Div0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "4"
+    Info: Parameter "LPM_WIDTHD" = "4"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_tcm.tdf
+    Info: Found entity 1: lpm_divide_tcm
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_BLANK" is stuck at VCC
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC
+    Warning (13410): Pin "HEX3[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[1]" is stuck at GND
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC
+    Warning (13410): Pin "HEX5[2]" is stuck at GND
+    Warning (13410): Pin "HEX5[1]" is stuck at GND
+    Warning (13410): Pin "HEX7[6]" is stuck at VCC
+    Warning (13410): Pin "HEX7[2]" is stuck at GND
+    Warning (13410): Pin "HEX7[1]" is stuck at GND
+Warning: Ignored assignments for entity "Design1" -- entity does not exist in design
+    Warning: Assignment for entity set_global_assignment -name LL_ROOT_REGION ON -entity Design1 -section_id "Root Region" was ignored
+    Warning: Assignment for entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity Design1 -section_id "Root Region" was ignored
+Info: Implemented 955 device resources after synthesis - the final resource count might be different
+    Info: Implemented 7 input pins
+    Info: Implemented 104 output pins
+    Info: Implemented 818 logic cells
+    Info: Implemented 24 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 258 megabytes
+    Info: Processing ended: Tue May 07 18:30:15 2024
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:05
+
+

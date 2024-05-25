@@ -1,0 +1,1784 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+
+/*
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+
+HEADER
+{
+	VERSION = 1;
+	TIME_UNIT = ns;
+	DATA_OFFSET = 0.0;
+	DATA_DURATION = 14000.0;
+	SIMULATION_TIME = 14000.0;
+	GRID_PHASE = 0.0;
+	GRID_PERIOD = 10.0;
+	GRID_DUTY_CYCLE = 50;
+}
+
+USER_TYPE("__Simulation_Two_Players|registerbank:GUESS_CODE|state")
+{
+	VALUES = "Undefined";
+}
+
+USER_TYPE("__Simulation_Two_Players|protocol_rx:inst|state")
+{
+	VALUES = "Undefined";
+}
+
+USER_TYPE("__Simulation_Two_Players|protocol_tx:inst1|state")
+{
+	VALUES = "Undefined";
+}
+
+USER_TYPE("__Simulation_Two_Players|tx_module:inst2|state")
+{
+	VALUES = "Undefined";
+}
+
+USER_TYPE("__Simulation_Two_Players|rx_module2:inst3|state")
+{
+	VALUES = "Undefined";
+}
+
+USER_TYPE("__Simulation_Two_Players|game:inst10|state")
+{
+	VALUES = "Undefined";
+}
+
+USER_TYPE("__Simulation_Two_Players|main:MAIN|state")
+{
+	VALUES = "Undefined";
+}
+
+USER_TYPE("__Simulation_Two_Players|registerbank:USER_CODE|state")
+{
+	VALUES = "Undefined";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|game:GAME|state")
+{
+	VALUES = "Undefined", "state.game_wait", "state.game_wtx1", "state.game_srdy", "state.game_wrdy", "state.game_code", "state.game_wcode", "state.game_wtx2", "state.game_sdt", "state.game_wdt", "state.game_frr", "state.game_wtx3", "state.game_seq", "state.game_wfr2", "state.game_sgrorsm", "state.game_wfr", "state.Wait_state", "state.W_Tx1", "state.S_RDY", "state.W_RDY", "state.Code", "state.W_Code", "state.W_Tx2", "state.S_DT", "state.W_DT", "state.FR_R", "state.W_Tx3", "state.S_GRorSM", "state.W_FR", "state.S_EQ", "state.W_FR2";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|main:MAIN|state")
+{
+	VALUES = "Undefined", "state.main_wait", "state.main_entercode", "state.main_wcode", "state.main_startgame", "state.main_wgame", "state.wait_state", "state.enter_code", "state.w_code", "state.start_game", "state.w_game";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|registerbank:USER_CODE|state")
+{
+	VALUES = "Undefined", "state.Wait_registerbank", "state.W_Keypress", "state.Get_key", "state.END_registerbank";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|protocol_rx:inst|state")
+{
+	VALUES = "Undefined", "state.pr_ini", "state.pr_w1", "state.pr_r1", "state.pr_w2", "state.pr_r2", "state.pr_f_type", "state.pr_s_rdy", "state.pr_w3", "state.pr_r3", "state.pr_w4", "state.pr_r4", "state.pr_w5", "state.pr_r5", "state.pr_s_dt", "state.pr_s_eq";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|protocol_tx:inst1|state")
+{
+	VALUES = "Undefined", "state.pr_wait", "state.pr_rdy", "state.pr_s1", "state.pr_w1", "state.pr_s2", "state.pr_w2", "state.pr_check_data", "state.pr_set_TX", "state.pr_dt", "state.pr_s3", "state.pr_w3", "state.pr_s4", "state.pr_w4", "state.pr_s5", "state.pr_w5", "state.pr_eq", "state.pr_gr";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_B|game:GAME|state")
+{
+	VALUES = "Undefined", "state.game_wait", "state.game_wtx1", "state.game_srdy", "state.game_wrdy", "state.game_code", "state.game_wcode", "state.game_wtx2", "state.game_sdt", "state.game_wdt", "state.game_frr", "state.game_wtx3", "state.game_seq", "state.game_wfr2", "state.game_sgrorsm", "state.game_wfr";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_B|main:MAIN|state")
+{
+	VALUES = "Undefined", "state.main_wait", "state.main_entercode", "state.main_wcode", "state.main_startgame", "state.main_wgame";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_B|protocol_tx:inst1|state")
+{
+	VALUES = "Undefined", "state.pr_wait", "state.pr_rdy", "state.pr_s1", "state.pr_w1", "state.pr_s2", "state.pr_w2", "state.pr_check_data", "state.pr_set_TX", "state.pr_dt", "state.pr_s3", "state.pr_w3", "state.pr_s4", "state.pr_w4", "state.pr_s5", "state.pr_w5", "state.pr_eq";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_B|registerbank:USER_CODE|state")
+{
+	VALUES = "Undefined", "state.Wait_registerbank", "state.W_Keypress", "state.Get_key", "state.END_registerbank";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_B|protocol_rx:inst|state")
+{
+	VALUES = "Undefined", "state.pr_ini", "state.pr_w1", "state.pr_r1", "state.pr_w2", "state.pr_r2", "state.pr_f_type", "state.pr_s_rdy", "state.pr_w3", "state.pr_r3", "state.pr_w4", "state.pr_r4", "state.pr_w5", "state.pr_r5", "state.pr_s_dt", "state.pr_s_eq";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|registerbank:GUESS_CODE|state")
+{
+	VALUES = "Undefined", "state.Wait_registerbank", "state.W_Keypress", "state.Get_key", "state.END_registerbank";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|main_control:inst|state")
+{
+	VALUES = "Undefined", "state.m_wait_has", "state.m_enter_code", "state.m_w_code", "state.m_start_game", "state.m_w_end_game", "state.pr_ini", "state.pr_w1", "state.pr_r1", "state.pr_w2", "state.pr_r2", "state.pr_f_type", "state.pr_s_rdy", "state.pr_w3", "state.pr_r3", "state.pr_w4", "state.pr_r4", "state.pr_w5", "state.pr_r5", "state.pr_s_dt", "state.pr_s_gr", "state.pr_s_eq", "state.pr_s_sm";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|game:GAME|state")
+{
+	VALUES = "Undefined", "state.g_wait_newgame", "state.g_wait_tx1", "state.g_sendRDY", "state.g_wait_RDY", "state.g_enterCode", "state.g_wait_code", "state.g_wait_tx2", "state.g_sendCode", "state.g_w_oponentcode", "state.g_activate_fr", "state.g_wait_tx3", "state.g_sendGR_or_SM", "state.g_wait_fr", "state.g_sendEQ", "state.g_wait_fr2", "state.g_final_frame_received", "state.game_wait", "state.game_wtx1", "state.game_srdy", "state.game_wrdy", "state.game_code", "state.game_wcode", "state.game_wtx2", "state.game_sdt", "state.game_wdt", "state.game_frr", "state.game_wtx3", "state.game_sgrorsm", "state.game_wfr", "state.game_seq", "state.game_wfr2";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|protocol_tx:inst3|state")
+{
+	VALUES = "Undefined", "state.pr_ini", "state.pr_wait", "state.pr_rdy", "state.pr_s1", "state.pr_w1", "state.pr_s2", "state.pr_w2", "state.pr_check_data", "state.pr_set_TX", "state.pr_dt", "state.pr_s3", "state.pr_w3", "state.pr_s4", "state.pr_w4", "state.pr_s5", "state.pr_w5", "state.pr_sm", "state.pr_eq", "state.rx_idle", "state.rx_start", "state.rx_shift", "state.rx_stop";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|register_bank2:USER_CODE|state")
+{
+	VALUES = "Undefined", "state.reg_wait", "state.reg_w_keypress", "state.reg_get_key", "state.reg_end", "state.Wait_registerbank", "state.W_Keypress", "state.Get_key", "state.END_registerbank";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|protocol_rx:inst4|state")
+{
+	VALUES = "Undefined", "state.pr_ini", "state.pr_w1", "state.pr_r1", "state.pr_w2", "state.pr_r2", "state.pr_f_type", "state.pr_s_rdy", "state.pr_w3", "state.pr_r3", "state.pr_w4", "state.pr_r4", "state.pr_w5", "state.pr_r5", "state.pr_s_dt", "state.pr_s_gr", "state.pr_s_eq";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|game:inst7|state")
+{
+	VALUES = "Undefined", "state.game_wait", "state.game_wtx1", "state.game_srdy", "state.game_wrdy", "state.game_code", "state.game_wcode", "state.game_wtx2", "state.game_sdt", "state.game_wdt", "state.game_frr", "state.game_wtx3", "state.game_sgrorsm", "state.game_wfr";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|main:inst12|state")
+{
+	VALUES = "Undefined", "state.main_wait", "state.main_entercode", "state.main_wcode", "state.main_startgame", "state.main_wgame";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|registerbank:inst10|state")
+{
+	VALUES = "Undefined", "state.Wait_registerbank", "state.W_Keypress", "state.Get_key", "state.END_registerbank";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|registerbank:inst11|state")
+{
+	VALUES = "Undefined", "state.Wait_registerbank", "state.W_Keypress", "state.Get_key", "state.END_registerbank";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|game_block:inst6|state")
+{
+	VALUES = "Undefined", "state.pr_ini", "state.pr_wait", "state.pr_w_tx1", "state.pr_s_rdy", "state.pr_w_rdy", "state.pr_code", "state.pr_w_code", "state.pr_w_tx2", "state.pr_s_dt", "state.pr_w_dt", "state.pr_fr_r", "state.pr_w_tx3", "state.pr_s_gr", "state.pr_w_fr", "state.pr_w_frG", "state.game_wait", "state.game_wtx1", "state.game_srdy", "state.game_wrdy", "state.game_code", "state.game_wcode", "state.game_wtx2", "state.game_sdt", "state.game_wdt", "state.game_frr", "state.game_wtx3", "state.game_sgrorsm", "state.game_wfr";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|registerbank:RB_GUESS|state")
+{
+	VALUES = "Undefined", "state.wait_state", "state.w_keypress", "state.get_key", "state.end_state", "state.Wait_registerbank", "state.W_Keypress", "state.Get_key", "state.END_registerbank";
+}
+
+USER_TYPE("__Design1_for_simulation:PLAYER_A|registerbank:RB_USER|state")
+{
+	VALUES = "Undefined", "state.wait_state", "state.w_keypress", "state.get_key", "state.end_state", "state.Wait_registerbank", "state.W_Keypress", "state.Get_key", "state.END_registerbank";
+}
+
+SIGNAL("nrst")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("CLK")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("keycodeA")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 4;
+	LSB_INDEX = 0;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("keycodeA[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeA";
+}
+
+SIGNAL("keycodeA[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeA";
+}
+
+SIGNAL("keycodeA[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeA";
+}
+
+SIGNAL("keycodeA[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeA";
+}
+
+SIGNAL("keyA")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("keycodeB")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 4;
+	LSB_INDEX = 0;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("keycodeB[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeB";
+}
+
+SIGNAL("keycodeB[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeB";
+}
+
+SIGNAL("keycodeB[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeB";
+}
+
+SIGNAL("keycodeB[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeB";
+}
+
+SIGNAL("keyB")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("OVER_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("OVER_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("ENTER_CODE_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("ENTER_CODE_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("Enter_Guess_code_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("Enter_Guess_code_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("SM_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("SM_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("GR_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("GR_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("TIE_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("TIE_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("A_LOSES")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("B_LOSES")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("A_WINS")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("B_WINS")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("Design1_for_simulation:PLAYER_A|protocol_rx:inst|state")
+{
+	VALUE_TYPE = ENUM;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = MACHINE;
+	PARENT = "";
+	ENUM_NAME = "__P1_ESDC:PLAYER_A|main_control:inst|state";
+}
+
+SIGNAL("Design1_for_simulation:PLAYER_A|game:GAME|state")
+{
+	VALUE_TYPE = ENUM;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = MACHINE;
+	PARENT = "";
+	ENUM_NAME = "__P1_ESDC:PLAYER_A|game:GAME|state";
+}
+
+SIGNAL("Design1_for_simulation:PLAYER_A|rx_module2:inst3|state")
+{
+	VALUE_TYPE = ENUM;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = MACHINE;
+	PARENT = "";
+	ENUM_NAME = "__P1_ESDC:PLAYER_A|protocol_tx:inst3|state";
+}
+
+SIGNAL("TX_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("TX_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+TRANSITION_LIST("nrst")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 13990.0;
+	}
+}
+
+TRANSITION_LIST("CLK")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1400;
+			LEVEL 0 FOR 5.0;
+			LEVEL 1 FOR 5.0;
+		}
+	}
+}
+
+TRANSITION_LIST("keycodeA[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 110.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1540.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 3960.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1550.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 6670.0;
+	}
+}
+
+TRANSITION_LIST("keycodeA[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1400.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 3850.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1310.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 210.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 6670.0;
+	}
+}
+
+TRANSITION_LIST("keycodeA[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 1400.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 3880.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1460.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 6670.0;
+	}
+}
+
+TRANSITION_LIST("keycodeA[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1540.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4020.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1390.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 6910.0;
+	}
+}
+
+TRANSITION_LIST("keyA")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 1420.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 3870.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 1330.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6680.0;
+	}
+}
+
+TRANSITION_LIST("keycodeB[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 950.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4390.0;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 1700.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 6180.0;
+	}
+}
+
+TRANSITION_LIST("keycodeB[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 90.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1040.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4350.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 1290.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 270.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 6180.0;
+	}
+}
+
+TRANSITION_LIST("keycodeB[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 110.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1040.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4300.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 1290.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 240.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 110.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 6180.0;
+	}
+}
+
+TRANSITION_LIST("keycodeB[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 90.0;
+		LEVEL 0 FOR 1080.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4300.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 8120.0;
+	}
+}
+
+TRANSITION_LIST("keyB")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 220.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 930.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 4280.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 1410.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 140.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 6200.0;
+	}
+}
+
+TRANSITION_LIST("OVER_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 11.352;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 9750.0;
+		LEVEL 1 FOR 4188.648;
+	}
+}
+
+TRANSITION_LIST("OVER_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 11.936;
+		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 9570.0;
+		LEVEL 1 FOR 4178.064;
+	}
+}
+
+TRANSITION_LIST("ENTER_CODE_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 61.599;
+		LEVEL 1 FOR 160.0;
+		LEVEL 0 FOR 13778.401;
+	}
+}
+
+TRANSITION_LIST("ENTER_CODE_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 252.114;
+		LEVEL 1 FOR 210.0;
+		LEVEL 0 FOR 13537.886;
+	}
+}
+
+TRANSITION_LIST("Enter_Guess_code_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1581.641;
+		LEVEL 1 FOR 200.0;
+		LEVEL 0 FOR 3830.0;
+		LEVEL 1 FOR 160.0;
+		LEVEL 0 FOR 8228.359;
+	}
+}
+
+TRANSITION_LIST("Enter_Guess_code_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1341.914;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 4080.0;
+		LEVEL 1 FOR 390.0;
+		LEVEL 0 FOR 8008.086;
+	}
+}
+
+TRANSITION_LIST("SM_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("SM_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5591.932;
+		LEVEL 1 FOR 4220.0;
+		LEVEL 0 FOR 4188.068;
+	}
+}
+
+TRANSITION_LIST("GR_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5601.636;
+		LEVEL 1 FOR 4200.0;
+		LEVEL 0 FOR 4198.364;
+	}
+}
+
+TRANSITION_LIST("GR_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("TIE_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 9801.854;
+		LEVEL 1 FOR 4198.146;
+	}
+}
+
+TRANSITION_LIST("TIE_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 9811.96;
+		LEVEL 1 FOR 4188.04;
+	}
+}
+
+TRANSITION_LIST("A_LOSES")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("B_LOSES")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("A_WINS")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("B_WINS")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("Design1_for_simulation:PLAYER_A|protocol_rx:inst|state")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL state.pr_ini FOR 17.928;
+		LEVEL state.pr_w1 FOR 980.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL state.pr_s_rdy FOR 10.0;
+		LEVEL state.pr_ini FOR 10.0;
+		LEVEL state.pr_w1 FOR 540.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.pr_w3 FOR 519.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_r3 FOR 9.996;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_w4 FOR 519.996;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_r4 FOR 9.998;
+		LEVEL state.pr_w5 FOR 520.0;
+		LEVEL state.pr_r5 FOR 10.0;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_s_dt FOR 10.0;
+		LEVEL state.pr_w1 FOR 770.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.pr_s_gr FOR 9.996;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.pr_ini FOR 9.996;
+		LEVEL state.pr_w1 FOR 930.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.pr_w3 FOR 519.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_r3 FOR 9.996;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_w4 FOR 519.996;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_r4 FOR 9.998;
+		LEVEL state.pr_w5 FOR 520.0;
+		LEVEL state.pr_r5 FOR 10.0;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_s_dt FOR 10.0;
+		LEVEL state.pr_w1 FOR 550.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.pr_s_eq FOR 9.996;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.pr_ini FOR 9.996;
+		LEVEL state.pr_w1 FOR 4202.072;
+	}
+}
+
+TRANSITION_LIST("Design1_for_simulation:PLAYER_A|game:GAME|state")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL state.game_wait FOR 217.916;
+		LEVEL state.game_wtx1 FOR 10.0;
+		LEVEL state.game_srdy FOR 10.0;
+		LEVEL Undefined FOR 0.012;
+		LEVEL state.game_wrdy FOR 1329.988;
+		LEVEL Undefined FOR 0.012;
+		LEVEL state.game_code FOR 9.988;
+		LEVEL Undefined FOR 0.033;
+		LEVEL state.game_wcode FOR 199.967;
+		LEVEL Undefined FOR 0.033;
+		LEVEL state.game_wtx2 FOR 9.967;
+		LEVEL state.game_sdt FOR 10.0;
+		LEVEL Undefined FOR 0.033;
+		LEVEL state.game_wdt FOR 2469.971;
+		LEVEL Undefined FOR 0.029;
+		LEVEL state.game_frr FOR 9.971;
+		LEVEL state.game_wtx3 FOR 210.0;
+		LEVEL Undefined FOR 0.003;
+		LEVEL state.game_sgrorsm FOR 10.0;
+		LEVEL Undefined FOR 0.026;
+		LEVEL state.game_wfr FOR 1099.967;
+		LEVEL Undefined FOR 0.033;
+		LEVEL state.game_code FOR 9.967;
+		LEVEL Undefined FOR 0.033;
+		LEVEL state.game_wcode FOR 159.967;
+		LEVEL Undefined FOR 0.033;
+		LEVEL state.game_wtx2 FOR 9.967;
+		LEVEL state.game_sdt FOR 10.0;
+		LEVEL Undefined FOR 0.033;
+		LEVEL state.game_wdt FOR 2899.971;
+		LEVEL Undefined FOR 0.029;
+		LEVEL state.game_frr FOR 9.971;
+		LEVEL state.game_wtx3 FOR 10.0;
+		LEVEL Undefined FOR 0.003;
+		LEVEL state.game_seq FOR 10.0;
+		LEVEL Undefined FOR 0.026;
+		LEVEL state.game_wfr2 FOR 1079.967;
+		LEVEL Undefined FOR 0.033;
+		LEVEL state.game_wait FOR 4202.051;
+	}
+}
+
+TRANSITION_LIST("Design1_for_simulation:PLAYER_A|rx_module2:inst3|state")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL state.rx_idle FOR 517.926;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 60.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 110.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 60.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 70.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL state.rx_start FOR 19.999;
+			LEVEL Undefined FOR 0.001;
+			LEVEL state.rx_shift FOR 399.999;
+			LEVEL state.rx_stop FOR 50.0;
+			LEVEL Undefined FOR 0.001;
+			LEVEL state.rx_idle FOR 60.0;
+		}
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 320.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 60.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 500.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 60.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 70.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL state.rx_start FOR 19.999;
+			LEVEL Undefined FOR 0.001;
+			LEVEL state.rx_shift FOR 399.999;
+			LEVEL state.rx_stop FOR 50.0;
+			LEVEL Undefined FOR 0.001;
+			LEVEL state.rx_idle FOR 60.0;
+		}
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 100.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 60.0;
+		LEVEL state.rx_start FOR 19.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_shift FOR 399.999;
+		LEVEL state.rx_stop FOR 50.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.rx_idle FOR 4252.074;
+	}
+}
+
+TRANSITION_LIST("TX_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 511.658;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 350.0;
+		LEVEL 1 FOR 340.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 150.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 520.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 350.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 300.0;
+		LEVEL 1 FOR 80.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+		}
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		NODE
+		{
+			REPEAT = 4;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+		}
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 4278.342;
+	}
+}
+
+TRANSITION_LIST("TX_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 271.615;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 630.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 150.0;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 310.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 150.0;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 300.0;
+		LEVEL 1 FOR 350.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		NODE
+		{
+			REPEAT = 4;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+		}
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 4268.385;
+	}
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "nrst";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 0;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "CLK";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 1;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 2;
+	TREE_LEVEL = 0;
+	CHILDREN = 3, 4, 5, 6;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 3;
+	TREE_LEVEL = 1;
+	PARENT = 2;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 4;
+	TREE_LEVEL = 1;
+	PARENT = 2;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 1;
+	PARENT = 2;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 6;
+	TREE_LEVEL = 1;
+	PARENT = 2;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keyA";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 7;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 8;
+	TREE_LEVEL = 0;
+	CHILDREN = 9, 10, 11, 12;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 9;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 10;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 11;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 12;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keyB";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 13;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "OVER_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 14;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "OVER_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 15;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ENTER_CODE_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 16;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ENTER_CODE_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 17;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Enter_Guess_code_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 18;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Enter_Guess_code_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 19;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "SM_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 20;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "SM_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 21;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "GR_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 22;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "GR_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 23;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "TIE_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 24;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "TIE_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 25;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "A_LOSES";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 26;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "B_LOSES";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 27;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "A_WINS";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 28;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "B_WINS";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 29;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Design1_for_simulation:PLAYER_A|protocol_rx:inst|state";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 30;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Design1_for_simulation:PLAYER_A|game:GAME|state";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 31;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Design1_for_simulation:PLAYER_A|rx_module2:inst3|state";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 32;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "TX_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 33;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "TX_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 34;
+	TREE_LEVEL = 0;
+}
+
+TIME_BAR
+{
+	TIME = 31775;
+	MASTER = TRUE;
+}
+;

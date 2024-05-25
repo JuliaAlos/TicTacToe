@@ -1,0 +1,190 @@
+-----------------------------------------------------------------------------------------
+-- Block square : indicates to WRITE MEMORY where a new square must be plotted in the VGA screen
+-- x_t: left top column coordinate. 8 MSB of the 10 bits needed.
+-- y_t: left top row coordinate. 7 MSB of the 9 bitw needed.
+-- color_t: RGB components of the square to plot. 3 bits
+-- Start: order to start writing the memory.
+-- Inputs: status of the board LEDS.
+-- Author: Josep Altet. 
+-- Version 1.0 : Date: 12-02-2019.
+-- Version 2.0 : Date: 25-02-2020 (Adapted to Theory lecture).
+-- Version 3.0 : Date: 08-09-2021 Adapted to Design 1.
+-- Electronic System Design for Communications - ESDC - ETSTB. UPC. Barcelona.
+----------------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+
+entity square is
+  port( clk_d1, nrst, start_turn : in std_logic;
+		our_cells, opp_cells : in std_logic_vector (8 downto 0);
+		start			: out std_logic;
+		x_t				: out integer range 0 to 160;
+		y_t				: out integer range 0 to 120;
+		color_t 		: out integer range 0 to 7;
+		done			: in std_logic);  -- To be connected to the RAM ADD Bus.
+end square;
+
+
+architecture functional of square is
+  
+  -- Coordinates of the squares that represent the different squeres on the VGA
+  constant XS1 : integer := 1;
+  constant XS2 : integer := 33;
+  constant XS3 : integer := 65;
+  constant YS1 : integer := 20;
+  constant YS2 : integer := 50;
+  constant YS3 : integer := 80;
+  
+  -- Possible colors of the sqares.
+  -- Precondition: memory is created blank (remaining color = 000).
+  constant RED : integer := 4;
+  constant BLUE : integer := 1;
+  constant GREEN : integer := 2; 
+
+  -- State definition:
+  type state_square is (s1a, s1b, s1c, s2a, s2b, s2c, s3a, s3b, s3c, s4a, s4b, s4c, s5a, s5b, s5c,
+                       s6a, s6b, s6c, s7a, s7b, s7c, s8a, s8b, s8c, s9a, s9b, s9c);
+  -- Internal signals
+  -- Output of the state register
+  signal st_square : state_square;
+  -- Internal address memory bus
+  
+  Begin
+-- All signals updated inside if (clk_d1'event and clk_d1='1') are output of registers!!
+-- With this VHDL description, Control Unit and Process Unit are described with one single Process.
+-- Control Unit: state flow.
+-- Process Unit: Blocks that process data (counters, registers).
+-- Control signals: they are not specified in the VHDL description, but they will be in the final implemented design. 
+-- Only output control signals are presented.
+	process(clk_d1, nrst)
+	Begin
+		if (nrst = '0') then
+			st_square <= s1a;
+		elsif (clk_d1'event and clk_d1='1') then
+			case st_square is
+				-- To activate the square associated to LG7
+				when s1a  => 
+					st_square <= s1b;
+					x_t <= XS1; y_t <= YS1;  -- Coordinates of the square.
+					if (our_cells and "100000000") = "100000000" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "100000000") = "100000000" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "100000000") = "100000000" or (opp_cells and "100000000") = "100000000" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s1b =>
+					st_square <= s1c;  --Start must be activated in this state in a combinacional circuit.
+				when s1c =>
+					if done = '1' then st_square <= s2a; end if;
+					
+				-- To activate the square associated to LG6
+				when s2a  => 
+					st_square <= s2b;
+					x_t <= XS2; y_t <= YS1;  -- Coordinates of the square.
+					if (our_cells and "010000000") = "010000000" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "010000000") = "010000000" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "010000000") = "010000000" or (opp_cells and "010000000") = "010000000" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s2b =>
+					st_square <= s2c;  --Start must be activated in this state in a combinacional circuit.
+				when s2c =>
+					if done = '1' then st_square <= s3a; end if;
+					
+				-- To activate the square associated to LG2
+				when s3a  => 
+					st_square <= s3b;
+					x_t <= XS3; y_t <= YS1;  -- Coordinates of the square.
+					if (our_cells and "0010000000") = "0010000000" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "0010000000") = "0010000000" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "0010000000") = "0010000000" or (opp_cells and "001000000") = "001000000" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s3b =>
+					st_square <= s3c;  --Start must be activated in this state in a combinacional circuit.
+				when s3c =>
+					if done = '1' then st_square <= s4a; end if;
+					
+				-- To activate the square associated to LG1
+				when s4a  => 
+					st_square <= s4b;
+					x_t <= XS1; y_t <= YS2;  -- Coordinates of the square.
+					if (our_cells and "000100000") = "000100000" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "000100000") = "000100000" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "000100000") = "000100000" or (opp_cells and "000100000") = "000100000" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s4b =>
+					st_square <= s4c;  --Start must be activated in this state in a combinacional circuit.
+				when s4c =>
+					if done = '1' then st_square <= s5a; end if;
+					
+				-- To activate the square associated to LG1
+				when s5a  => 
+					st_square <= s5b;
+					x_t <= XS2; y_t <= YS2;  -- Coordinates of the square.
+					if (our_cells and "000010000") = "000010000" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "000010000") = "000010000" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "000010000") = "000010000" or (opp_cells and "000010000") = "000010000" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s5b =>
+					st_square <= s5c;  --Start must be activated in this state in a combinacional circuit.
+				when s5c =>
+					if done = '1' then st_square <= s6a; end if;
+					
+				--- To activate the square associated to LR2
+				when s6a  => 
+					st_square <= s6b;
+					x_t <= XS3; y_t <= YS2;  -- Coordinates of the square.
+					if (our_cells and "000001000") = "000001000" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "000001000") = "000001000" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "000001000") = "000001000" or (opp_cells and "000001000") = "000001000" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s6b =>
+					st_square <= s6c;  --Start must be activated in this state in a combinacional circuit.
+				when s6c =>
+					if done = '1' then st_square <= s7a; end if;
+					
+				-- To activate the square associated to LR1
+				when s7a  => 
+					st_square <= s7b;
+					x_t <= XS1; y_t <= YS3;  -- Coordinates of the square.
+					if (our_cells and "000000100") = "000000100" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "000000100") = "000000100" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "000000100") = "000000100" or (opp_cells and "000000100") = "000000100" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s7b =>
+					st_square <= s7c;  --Start must be activated in this state in a combinacional circuit.
+				when s7c =>
+					if done = '1' then st_square <= s8a; end if;
+					
+				-- To activate the square associated to LR1
+				when s8a  => 
+					st_square <= s8b;
+					x_t <= XS2; y_t <= YS3;  -- Coordinates of the square.
+					if (our_cells and "000000010") = "000000010" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "000000010") = "000000010" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "000000010") = "000000010" or (opp_cells and "000000010") = "000000010" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s8b =>
+					st_square <= s8c;  --Start must be activated in this state in a combinacional circuit.
+				when s8c =>
+					if done = '1' then st_square <= s9a; end if;  -- Infinite loop.
+				
+				when s9a  => 
+					st_square <= s9b;
+					x_t <= XS3; y_t <= YS3;  -- Coordinates of the square.
+					if (our_cells and "000000001") = "000000001" and start_turn = '1' then color_t <= BLUE;
+					elsif (opp_cells and "000000001") = "000000001" and start_turn = '0' then color_t <= BLUE;  
+					elsif (our_cells and "000000001") = "000000001" or (opp_cells and "000000001") = "000000001" then color_t <= RED;
+					else color_t <= GREEN; end if;
+				when s9b =>
+					st_square <= s9c;  --Start must be activated in this state in a combinacional circuit.
+				when s9c =>
+					if done = '1' then st_square <= s1a; end if;  -- Infinite loop.
+			End Case;
+		End If;
+	End Process;
+	
+Start <= '1' when (st_square = s1b) or (st_square = s2b) or (st_square = s3b) or
+				(st_square = s4b) or (st_square = s5b) or (st_square = s6b) or (st_square = s7b) 
+				or (st_square = s8b) or (st_square = s9b) else '0';
+End Functional;

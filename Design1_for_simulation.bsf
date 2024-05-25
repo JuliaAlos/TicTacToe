@@ -1,0 +1,127 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 280 208)
+	(text "Design1_for_simulation" (rect 5 0 137 14)(font "Arial" (font_size 8)))
+	(text "inst" (rect 8 176 25 188)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "nrst" (rect 0 0 22 14)(font "Arial" (font_size 8)))
+		(text "nrst" (rect 21 27 43 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk" (rect 0 0 15 14)(font "Arial" (font_size 8)))
+		(text "clk" (rect 21 43 36 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "key" (rect 0 0 20 14)(font "Arial" (font_size 8)))
+		(text "key" (rect 21 59 41 73)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "keycode_in[3..0]" (rect 0 0 93 14)(font "Arial" (font_size 8)))
+		(text "keycode_in[3..0]" (rect 21 75 114 89)(font "Arial" (font_size 8)))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "RX" (rect 0 0 16 14)(font "Arial" (font_size 8)))
+		(text "RX" (rect 21 91 37 105)(font "Arial" (font_size 8)))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 264 32)
+		(output)
+		(text "GAME_OVER" (rect 0 0 76 14)(font "Arial" (font_size 8)))
+		(text "GAME_OVER" (rect 167 27 243 41)(font "Arial" (font_size 8)))
+		(line (pt 264 32)(pt 248 32)(line_width 1))
+	)
+	(port
+		(pt 264 48)
+		(output)
+		(text "LED_USER_CODE" (rect 0 0 101 14)(font "Arial" (font_size 8)))
+		(text "LED_USER_CODE" (rect 142 43 243 57)(font "Arial" (font_size 8)))
+		(line (pt 264 48)(pt 248 48)(line_width 1))
+	)
+	(port
+		(pt 264 64)
+		(output)
+		(text "Light_Enter_G_CODE" (rect 0 0 120 14)(font "Arial" (font_size 8)))
+		(text "Light_Enter_G_CODE" (rect 123 59 243 73)(font "Arial" (font_size 8)))
+		(line (pt 264 64)(pt 248 64)(line_width 1))
+	)
+	(port
+		(pt 264 80)
+		(output)
+		(text "TX" (rect 0 0 15 14)(font "Arial" (font_size 8)))
+		(text "TX" (rect 228 75 243 89)(font "Arial" (font_size 8)))
+		(line (pt 264 80)(pt 248 80)(line_width 1))
+	)
+	(port
+		(pt 264 96)
+		(output)
+		(text "GRATHER" (rect 0 0 57 14)(font "Arial" (font_size 8)))
+		(text "GRATHER" (rect 186 91 243 105)(font "Arial" (font_size 8)))
+		(line (pt 264 96)(pt 248 96)(line_width 1))
+	)
+	(port
+		(pt 264 112)
+		(output)
+		(text "SMALLER" (rect 0 0 56 14)(font "Arial" (font_size 8)))
+		(text "SMALLER" (rect 187 107 243 121)(font "Arial" (font_size 8)))
+		(line (pt 264 112)(pt 248 112)(line_width 1))
+	)
+	(port
+		(pt 264 128)
+		(output)
+		(text "winer" (rect 0 0 33 14)(font "Arial" (font_size 8)))
+		(text "winer" (rect 210 123 243 137)(font "Arial" (font_size 8)))
+		(line (pt 264 128)(pt 248 128)(line_width 1))
+	)
+	(port
+		(pt 264 144)
+		(output)
+		(text "loser" (rect 0 0 28 14)(font "Arial" (font_size 8)))
+		(text "loser" (rect 215 139 243 153)(font "Arial" (font_size 8)))
+		(line (pt 264 144)(pt 248 144)(line_width 1))
+	)
+	(port
+		(pt 264 160)
+		(output)
+		(text "tie" (rect 0 0 12 14)(font "Arial" (font_size 8)))
+		(text "tie" (rect 231 155 243 169)(font "Arial" (font_size 8)))
+		(line (pt 264 160)(pt 248 160)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 248 176)(line_width 1))
+	)
+)

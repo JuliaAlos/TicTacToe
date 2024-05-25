@@ -1,0 +1,1692 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+
+/*
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+
+HEADER
+{
+	VERSION = 1;
+	TIME_UNIT = ns;
+	PAGE_SETUP = "header_footer\
+Date: %D\
+%f\
+Project: %j\
+\
+Page %p of %P\
+Revision: %a\
+margin\
+1\
+1\
+1\
+1\
+orientation\
+1\
+paper_size\
+8\
+paper_source\
+15\
+fit_page_wide\
+1\
+fit_page_tall\
+1\
+";
+	DATA_OFFSET = 0.0;
+	DATA_DURATION = 14000.0;
+	SIMULATION_TIME = 100000.0;
+	GRID_PHASE = 0.0;
+	GRID_PERIOD = 10.0;
+	GRID_DUTY_CYCLE = 50;
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|main_control:inst|state")
+{
+	VALUES = "Undefined", "state.m_wait_has", "state.m_enter_code", "state.m_w_code", "state.m_start_game", "state.m_w_end_game";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|game:GAME|state")
+{
+	VALUES = "Undefined", "state.g_wait_newgame", "state.g_wait_tx1", "state.g_sendRDY", "state.g_wait_RDY", "state.g_enterCode", "state.g_wait_code", "state.g_wait_tx2", "state.g_sendCode", "state.g_w_oponentcode", "state.g_activate_fr", "state.g_wait_tx3", "state.g_sendGR_or_SM", "state.g_wait_fr", "state.g_sendEQ", "state.g_wait_fr2", "state.g_final_frame_received";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|protocol_tx:inst3|state")
+{
+	VALUES = "Undefined", "state.pr_ini", "state.pr_wait", "state.pr_rdy", "state.pr_s1", "state.pr_w1", "state.pr_s2", "state.pr_w2", "state.pr_check_data", "state.pr_set_TX", "state.pr_dt", "state.pr_s3", "state.pr_w3", "state.pr_s4", "state.pr_w4", "state.pr_s5", "state.pr_w5", "state.pr_sm", "state.pr_eq";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|register_bank2:USER_CODE|state")
+{
+	VALUES = "Undefined", "state.reg_wait", "state.reg_w_keypress", "state.reg_get_key", "state.reg_end";
+}
+
+USER_TYPE("__P1_ESDC:PLAYER_A|protocol_rx:inst4|state")
+{
+	VALUES = "Undefined", "state.pr_ini", "state.pr_w1", "state.pr_r1", "state.pr_w2", "state.pr_r2", "state.pr_f_type", "state.pr_s_rdy", "state.pr_w3", "state.pr_r3", "state.pr_w4", "state.pr_r4", "state.pr_w5", "state.pr_r5", "state.pr_s_dt", "state.pr_s_gr", "state.pr_s_eq";
+}
+
+SIGNAL("nrst")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("OVER_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("OVER_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("SM_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("SM_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("GR_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("GR_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("TIE_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("TIE_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("A_LOSES")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("B_LOSES")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("A_WINS")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("B_WINS")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("CLK")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("Enter_Guess_code_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("Enter_Guess_code_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("keycodeA")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 4;
+	LSB_INDEX = 0;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("keycodeA[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeA";
+}
+
+SIGNAL("keycodeA[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeA";
+}
+
+SIGNAL("keycodeA[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeA";
+}
+
+SIGNAL("keycodeA[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeA";
+}
+
+SIGNAL("keycodeB")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 4;
+	LSB_INDEX = 0;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("keycodeB[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeB";
+}
+
+SIGNAL("keycodeB[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeB";
+}
+
+SIGNAL("keycodeB[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeB";
+}
+
+SIGNAL("keycodeB[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "keycodeB";
+}
+
+SIGNAL("P1_ESDC:PLAYER_A|main_control:inst|state")
+{
+	VALUE_TYPE = ENUM;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = MACHINE;
+	PARENT = "";
+	ENUM_NAME = "__P1_ESDC:PLAYER_A|main_control:inst|state";
+}
+
+SIGNAL("P1_ESDC:PLAYER_A|game:GAME|state")
+{
+	VALUE_TYPE = ENUM;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = MACHINE;
+	PARENT = "";
+	ENUM_NAME = "__P1_ESDC:PLAYER_A|game:GAME|state";
+}
+
+SIGNAL("P1_ESDC:PLAYER_A|protocol_tx:inst3|state")
+{
+	VALUE_TYPE = ENUM;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = MACHINE;
+	PARENT = "";
+	ENUM_NAME = "__P1_ESDC:PLAYER_A|protocol_tx:inst3|state";
+}
+
+SIGNAL("P1_ESDC:PLAYER_A|register_bank2:USER_CODE|state")
+{
+	VALUE_TYPE = ENUM;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = MACHINE;
+	PARENT = "";
+	ENUM_NAME = "__P1_ESDC:PLAYER_A|register_bank2:USER_CODE|state";
+}
+
+SIGNAL("P1_ESDC:PLAYER_A|protocol_rx:inst4|state")
+{
+	VALUE_TYPE = ENUM;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = MACHINE;
+	PARENT = "";
+	ENUM_NAME = "__P1_ESDC:PLAYER_A|protocol_rx:inst4|state";
+}
+
+SIGNAL("TX_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("TX_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("ENTER_CODE_A")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("ENTER_CODE_B")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("keyA")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("keyB")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+TRANSITION_LIST("nrst")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 13990.0;
+	}
+}
+
+TRANSITION_LIST("OVER_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 61.361;
+		LEVEL 0 FOR 9750.0;
+		LEVEL 1 FOR 4188.639;
+	}
+}
+
+TRANSITION_LIST("OVER_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 251.418;
+		LEVEL 0 FOR 9570.0;
+		LEVEL 1 FOR 4178.582;
+	}
+}
+
+TRANSITION_LIST("SM_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("SM_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5593.594;
+		LEVEL 1 FOR 4220.0;
+		LEVEL 0 FOR 4186.406;
+	}
+}
+
+TRANSITION_LIST("GR_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5602.203;
+		LEVEL 1 FOR 4200.0;
+		LEVEL 0 FOR 4197.797;
+	}
+}
+
+TRANSITION_LIST("GR_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("TIE_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 9801.605;
+		LEVEL 1 FOR 4198.395;
+	}
+}
+
+TRANSITION_LIST("TIE_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 9811.893;
+		LEVEL 1 FOR 4188.107;
+	}
+}
+
+TRANSITION_LIST("A_LOSES")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("B_LOSES")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("A_WINS")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("B_WINS")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 14000.0;
+	}
+}
+
+TRANSITION_LIST("CLK")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1400;
+			LEVEL 0 FOR 5.0;
+			LEVEL 1 FOR 5.0;
+		}
+	}
+}
+
+TRANSITION_LIST("Enter_Guess_code_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1581.61;
+		LEVEL 1 FOR 200.0;
+		LEVEL 0 FOR 3830.0;
+		LEVEL 1 FOR 160.0;
+		LEVEL 0 FOR 8228.39;
+	}
+}
+
+TRANSITION_LIST("Enter_Guess_code_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1342.287;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 4080.0;
+		LEVEL 1 FOR 390.0;
+		LEVEL 0 FOR 8007.713;
+	}
+}
+
+TRANSITION_LIST("keycodeA[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 110.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1540.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 3960.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 8250.0;
+	}
+}
+
+TRANSITION_LIST("keycodeA[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 1400.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 3880.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 8250.0;
+	}
+}
+
+TRANSITION_LIST("keycodeA[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1400.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 3880.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 8250.0;
+	}
+}
+
+TRANSITION_LIST("keycodeA[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 90.0;
+		LEVEL 0 FOR 1430.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4020.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 8330.0;
+	}
+}
+
+TRANSITION_LIST("keycodeB[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 950.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4390.0;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 7930.0;
+	}
+}
+
+TRANSITION_LIST("keycodeB[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 70.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1040.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4350.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 7930.0;
+	}
+}
+
+TRANSITION_LIST("keycodeB[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1040.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4300.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 7930.0;
+	}
+}
+
+TRANSITION_LIST("keycodeB[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 1050.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 4300.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 8120.0;
+	}
+}
+
+TRANSITION_LIST("P1_ESDC:PLAYER_A|main_control:inst|state")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL state.m_wait_has FOR 47.932;
+		LEVEL state.m_enter_code FOR 10.0;
+		LEVEL state.m_w_code FOR 149.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.m_start_game FOR 9.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.m_w_end_game FOR 9590.0;
+		LEVEL state.m_wait_has FOR 4192.068;
+	}
+}
+
+TRANSITION_LIST("P1_ESDC:PLAYER_A|game:GAME|state")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL state.g_wait_newgame FOR 217.931;
+		LEVEL state.g_wait_tx1 FOR 10.0;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.g_sendRDY FOR 9.995;
+		LEVEL Undefined FOR 0.005;
+		LEVEL state.g_wait_RDY FOR 1329.995;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.g_enterCode FOR 10.0;
+		LEVEL Undefined FOR 0.006;
+		LEVEL state.g_wait_code FOR 199.994;
+		LEVEL Undefined FOR 0.006;
+		LEVEL state.g_wait_tx2 FOR 9.994;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.g_sendCode FOR 10.0;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.g_w_oponentcode FOR 2469.994;
+		LEVEL Undefined FOR 0.006;
+		LEVEL state.g_activate_fr FOR 9.994;
+		LEVEL state.g_wait_tx3 FOR 210.0;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.g_sendGR_or_SM FOR 9.995;
+		LEVEL Undefined FOR 0.005;
+		LEVEL state.g_wait_fr FOR 1099.995;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.g_enterCode FOR 10.0;
+		LEVEL Undefined FOR 0.006;
+		LEVEL state.g_wait_code FOR 159.994;
+		LEVEL Undefined FOR 0.006;
+		LEVEL state.g_wait_tx2 FOR 9.994;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.g_sendCode FOR 10.0;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.g_w_oponentcode FOR 2899.994;
+		LEVEL Undefined FOR 0.006;
+		LEVEL state.g_activate_fr FOR 9.994;
+		LEVEL state.g_wait_tx3 FOR 10.0;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.g_sendEQ FOR 9.995;
+		LEVEL Undefined FOR 0.005;
+		LEVEL state.g_wait_fr2 FOR 1079.995;
+		LEVEL Undefined FOR 0.007;
+		LEVEL state.g_final_frame_received FOR 9.994;
+		LEVEL Undefined FOR 0.006;
+		LEVEL state.g_wait_newgame FOR 4192.063;
+	}
+}
+
+TRANSITION_LIST("P1_ESDC:PLAYER_A|protocol_tx:inst3|state")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL state.pr_wait FOR 237.936;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_rdy FOR 10.0;
+		LEVEL state.pr_s1 FOR 10.0;
+		LEVEL state.pr_w1 FOR 520.0;
+		LEVEL state.pr_s2 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_check_data FOR 10.0;
+		LEVEL state.pr_set_TX FOR 9.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_wait FOR 469.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_dt FOR 10.0;
+		LEVEL state.pr_s1 FOR 10.0;
+		LEVEL state.pr_w1 FOR 520.0;
+		LEVEL state.pr_s2 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_check_data FOR 10.0;
+		LEVEL state.pr_s3 FOR 10.0;
+		LEVEL state.pr_w3 FOR 520.0;
+		LEVEL state.pr_s4 FOR 10.0;
+		LEVEL state.pr_w4 FOR 520.0;
+		LEVEL state.pr_s5 FOR 10.0;
+		LEVEL state.pr_w5 FOR 520.0;
+		LEVEL state.pr_set_TX FOR 9.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_wait FOR 19.998;
+		LEVEL state.pr_sm FOR 10.0;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_s1 FOR 10.0;
+		LEVEL state.pr_w1 FOR 520.0;
+		LEVEL state.pr_s2 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_check_data FOR 10.0;
+		LEVEL state.pr_set_TX FOR 9.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_wait FOR 199.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_dt FOR 10.0;
+		LEVEL state.pr_s1 FOR 10.0;
+		LEVEL state.pr_w1 FOR 520.0;
+		LEVEL state.pr_s2 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_check_data FOR 10.0;
+		LEVEL state.pr_s3 FOR 10.0;
+		LEVEL state.pr_w3 FOR 520.0;
+		LEVEL state.pr_s4 FOR 10.0;
+		LEVEL state.pr_w4 FOR 520.0;
+		LEVEL state.pr_s5 FOR 10.0;
+		LEVEL state.pr_w5 FOR 520.0;
+		LEVEL state.pr_set_TX FOR 9.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_wait FOR 249.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_eq FOR 10.0;
+		LEVEL state.pr_s1 FOR 10.0;
+		LEVEL state.pr_w1 FOR 520.0;
+		LEVEL state.pr_s2 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_check_data FOR 10.0;
+		LEVEL state.pr_set_TX FOR 9.998;
+		LEVEL Undefined FOR 0.002;
+		LEVEL state.pr_wait FOR 4192.062;
+	}
+}
+
+TRANSITION_LIST("P1_ESDC:PLAYER_A|register_bank2:USER_CODE|state")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL state.reg_wait FOR 57.931;
+		LEVEL state.reg_w_keypress FOR 39.996;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL Undefined FOR 0.004;
+			LEVEL state.reg_get_key FOR 9.996;
+			LEVEL Undefined FOR 0.004;
+			LEVEL state.reg_w_keypress FOR 19.996;
+		}
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.reg_end FOR 9.996;
+		LEVEL Undefined FOR 0.004;
+		LEVEL state.reg_wait FOR 13802.069;
+	}
+}
+
+TRANSITION_LIST("P1_ESDC:PLAYER_A|protocol_rx:inst4|state")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL state.pr_ini FOR 17.93;
+		LEVEL Undefined FOR 0.007;
+		LEVEL state.pr_w1 FOR 980.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL state.pr_s_rdy FOR 9.992;
+		LEVEL Undefined FOR 0.008;
+		LEVEL state.pr_ini FOR 9.992;
+		LEVEL Undefined FOR 0.007;
+		LEVEL state.pr_w1 FOR 540.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL state.pr_w3 FOR 520.0;
+		LEVEL state.pr_r3 FOR 10.0;
+		LEVEL state.pr_w4 FOR 520.0;
+		LEVEL state.pr_r4 FOR 10.0;
+		LEVEL state.pr_w5 FOR 520.0;
+		LEVEL state.pr_r5 FOR 9.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.pr_s_dt FOR 9.999;
+		LEVEL state.pr_w1 FOR 770.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL state.pr_s_gr FOR 9.992;
+		LEVEL Undefined FOR 0.008;
+		LEVEL state.pr_ini FOR 9.992;
+		LEVEL Undefined FOR 0.007;
+		LEVEL state.pr_w1 FOR 930.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL state.pr_w3 FOR 520.0;
+		LEVEL state.pr_r3 FOR 10.0;
+		LEVEL state.pr_w4 FOR 520.0;
+		LEVEL state.pr_r4 FOR 10.0;
+		LEVEL state.pr_w5 FOR 520.0;
+		LEVEL state.pr_r5 FOR 9.999;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.pr_s_dt FOR 9.999;
+		LEVEL state.pr_w1 FOR 550.0;
+		LEVEL state.pr_r1 FOR 10.0;
+		LEVEL state.pr_w2 FOR 520.0;
+		LEVEL state.pr_r2 FOR 10.0;
+		LEVEL Undefined FOR 0.001;
+		LEVEL state.pr_f_type FOR 10.0;
+		LEVEL state.pr_s_eq FOR 9.992;
+		LEVEL Undefined FOR 0.008;
+		LEVEL state.pr_ini FOR 9.992;
+		LEVEL Undefined FOR 0.007;
+		LEVEL state.pr_w1 FOR 4202.063;
+	}
+}
+
+TRANSITION_LIST("TX_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 512.299;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 350.0;
+		LEVEL 1 FOR 340.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 150.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 520.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 350.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 300.0;
+		LEVEL 1 FOR 80.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+		}
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		NODE
+		{
+			REPEAT = 4;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+		}
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 4277.701;
+	}
+}
+
+TRANSITION_LIST("TX_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 271.354;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 630.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 150.0;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 310.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 150.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 150.0;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL 0 FOR 300.0;
+		LEVEL 1 FOR 350.0;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 50.0;
+			LEVEL 0 FOR 50.0;
+		}
+		LEVEL 1 FOR 130.0;
+		NODE
+		{
+			REPEAT = 4;
+			LEVEL 0 FOR 50.0;
+			LEVEL 1 FOR 50.0;
+		}
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 4268.646;
+	}
+}
+
+TRANSITION_LIST("ENTER_CODE_A")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 61.347;
+		LEVEL 1 FOR 150.0;
+		LEVEL 0 FOR 13788.653;
+	}
+}
+
+TRANSITION_LIST("ENTER_CODE_B")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 251.409;
+		LEVEL 1 FOR 200.0;
+		LEVEL 0 FOR 13548.591;
+	}
+}
+
+TRANSITION_LIST("keyA")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 1420.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 3870.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 8260.0;
+	}
+}
+
+TRANSITION_LIST("keyB")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 220.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 930.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 4280.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 8040.0;
+	}
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "nrst";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 0;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "CLK";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 1;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 2;
+	TREE_LEVEL = 0;
+	CHILDREN = 3, 4, 5, 6;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 3;
+	TREE_LEVEL = 1;
+	PARENT = 2;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 4;
+	TREE_LEVEL = 1;
+	PARENT = 2;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 1;
+	PARENT = 2;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeA[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 6;
+	TREE_LEVEL = 1;
+	PARENT = 2;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keyA";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 7;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 8;
+	TREE_LEVEL = 0;
+	CHILDREN = 9, 10, 11, 12;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 9;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 10;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 11;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keycodeB[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 12;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keyB";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 13;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "OVER_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 14;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "OVER_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 15;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ENTER_CODE_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 16;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ENTER_CODE_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 17;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Enter_Guess_code_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 18;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Enter_Guess_code_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 19;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "SM_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 20;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "SM_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 21;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "GR_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 22;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "GR_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 23;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "TIE_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 24;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "TIE_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 25;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "A_LOSES";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 26;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "B_LOSES";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 27;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "A_WINS";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 28;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "B_WINS";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 29;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P1_ESDC:PLAYER_A|main_control:inst|state";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 30;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P1_ESDC:PLAYER_A|game:GAME|state";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 31;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P1_ESDC:PLAYER_A|protocol_tx:inst3|state";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 32;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P1_ESDC:PLAYER_A|register_bank2:USER_CODE|state";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 33;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P1_ESDC:PLAYER_A|protocol_rx:inst4|state";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Hexadecimal;
+	TREE_INDEX = 34;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "TX_B";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 35;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "TX_A";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 36;
+	TREE_LEVEL = 0;
+}
+
+TIME_BAR
+{
+	TIME = 23200;
+	MASTER = TRUE;
+}
+;

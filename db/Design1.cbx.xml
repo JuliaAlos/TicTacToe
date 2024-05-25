@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Design1">
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_05m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_tcm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|I_O_Manager_VGA:inst9|VGA_visualisation:inst1|Video_Memory:inst|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_4jk1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|digit_div:inst13|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_tcm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|digit_div:inst14|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_05m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_tcm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_05m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|digit_div:inst15|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_05m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|P1_BOARD_vga_self|digit_div:inst16|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_tcm.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

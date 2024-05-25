@@ -1,0 +1,267 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 240 432)
+	(text "game" (rect 5 0 32 12)(font "Arial" ))
+	(text "inst" (rect 8 400 25 412)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "nrst" (rect 0 0 18 12)(font "Arial" ))
+		(text "nrst" (rect 21 27 39 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 43 35 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "start_game" (rect 0 0 55 12)(font "Arial" ))
+		(text "start_game" (rect 21 59 76 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "RDY_RECEIVED" (rect 0 0 87 12)(font "Arial" ))
+		(text "RDY_RECEIVED" (rect 21 75 108 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "MOVE_RECEIVED" (rect 0 0 93 12)(font "Arial" ))
+		(text "MOVE_RECEIVED" (rect 21 91 114 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "TIE_RECEIVED" (rect 0 0 79 12)(font "Arial" ))
+		(text "TIE_RECEIVED" (rect 21 107 100 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "WIN_RECEIVED" (rect 0 0 84 12)(font "Arial" ))
+		(text "WIN_RECEIVED" (rect 21 123 105 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "received_data[3..0]" (rect 0 0 95 12)(font "Arial" ))
+		(text "received_data[3..0]" (rect 21 139 116 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "keycode[3..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "keycode[3..0]" (rect 21 155 89 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "bcd" (rect 0 0 17 12)(font "Arial" ))
+		(text "bcd" (rect 21 171 38 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "ready_to_TX" (rect 0 0 61 12)(font "Arial" ))
+		(text "ready_to_TX" (rect 21 187 82 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 1))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "new_frame" (rect 0 0 54 12)(font "Arial" ))
+		(text "new_frame" (rect 21 203 75 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 1))
+	)
+	(port
+		(pt 224 32)
+		(output)
+		(text "SEND_RDY" (rect 0 0 61 12)(font "Arial" ))
+		(text "SEND_RDY" (rect 142 27 203 39)(font "Arial" ))
+		(line (pt 224 32)(pt 208 32)(line_width 1))
+	)
+	(port
+		(pt 224 48)
+		(output)
+		(text "SEND_MOVE" (rect 0 0 67 12)(font "Arial" ))
+		(text "SEND_MOVE" (rect 136 43 203 55)(font "Arial" ))
+		(line (pt 224 48)(pt 208 48)(line_width 1))
+	)
+	(port
+		(pt 224 64)
+		(output)
+		(text "SEND_WIN" (rect 0 0 59 12)(font "Arial" ))
+		(text "SEND_WIN" (rect 144 59 203 71)(font "Arial" ))
+		(line (pt 224 64)(pt 208 64)(line_width 1))
+	)
+	(port
+		(pt 224 80)
+		(output)
+		(text "SEND_TIE" (rect 0 0 53 12)(font "Arial" ))
+		(text "SEND_TIE" (rect 150 75 203 87)(font "Arial" ))
+		(line (pt 224 80)(pt 208 80)(line_width 1))
+	)
+	(port
+		(pt 224 96)
+		(output)
+		(text "send_data[3..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "send_data[3..0]" (rect 127 91 203 103)(font "Arial" ))
+		(line (pt 224 96)(pt 208 96)(line_width 3))
+	)
+	(port
+		(pt 224 112)
+		(output)
+		(text "frame_received" (rect 0 0 77 12)(font "Arial" ))
+		(text "frame_received" (rect 126 107 203 119)(font "Arial" ))
+		(line (pt 224 112)(pt 208 112)(line_width 1))
+	)
+	(port
+		(pt 224 128)
+		(output)
+		(text "LED_READY" (rect 0 0 66 12)(font "Arial" ))
+		(text "LED_READY" (rect 137 123 203 135)(font "Arial" ))
+		(line (pt 224 128)(pt 208 128)(line_width 1))
+	)
+	(port
+		(pt 224 144)
+		(output)
+		(text "LED_NUM" (rect 0 0 51 12)(font "Arial" ))
+		(text "LED_NUM" (rect 152 139 203 151)(font "Arial" ))
+		(line (pt 224 144)(pt 208 144)(line_width 1))
+	)
+	(port
+		(pt 224 160)
+		(output)
+		(text "LED_WAIT" (rect 0 0 54 12)(font "Arial" ))
+		(text "LED_WAIT" (rect 149 155 203 167)(font "Arial" ))
+		(line (pt 224 160)(pt 208 160)(line_width 1))
+	)
+	(port
+		(pt 224 176)
+		(output)
+		(text "LED_MOVE" (rect 0 0 57 12)(font "Arial" ))
+		(text "LED_MOVE" (rect 146 171 203 183)(font "Arial" ))
+		(line (pt 224 176)(pt 208 176)(line_width 1))
+	)
+	(port
+		(pt 224 192)
+		(output)
+		(text "LED_WIN" (rect 0 0 49 12)(font "Arial" ))
+		(text "LED_WIN" (rect 154 187 203 199)(font "Arial" ))
+		(line (pt 224 192)(pt 208 192)(line_width 1))
+	)
+	(port
+		(pt 224 208)
+		(output)
+		(text "LED_LOSE" (rect 0 0 55 12)(font "Arial" ))
+		(text "LED_LOSE" (rect 148 203 203 215)(font "Arial" ))
+		(line (pt 224 208)(pt 208 208)(line_width 1))
+	)
+	(port
+		(pt 224 224)
+		(output)
+		(text "LED_TIE" (rect 0 0 43 12)(font "Arial" ))
+		(text "LED_TIE" (rect 160 219 203 231)(font "Arial" ))
+		(line (pt 224 224)(pt 208 224)(line_width 1))
+	)
+	(port
+		(pt 224 240)
+		(output)
+		(text "start" (rect 0 0 22 12)(font "Arial" ))
+		(text "start" (rect 181 235 203 247)(font "Arial" ))
+		(line (pt 224 240)(pt 208 240)(line_width 1))
+	)
+	(port
+		(pt 224 256)
+		(output)
+		(text "game_end" (rect 0 0 50 12)(font "Arial" ))
+		(text "game_end" (rect 153 251 203 263)(font "Arial" ))
+		(line (pt 224 256)(pt 208 256)(line_width 1))
+	)
+	(port
+		(pt 224 272)
+		(output)
+		(text "new_game" (rect 0 0 51 12)(font "Arial" ))
+		(text "new_game" (rect 152 267 203 279)(font "Arial" ))
+		(line (pt 224 272)(pt 208 272)(line_width 1))
+	)
+	(port
+		(pt 224 288)
+		(output)
+		(text "win" (rect 0 0 15 12)(font "Arial" ))
+		(text "win" (rect 188 283 203 295)(font "Arial" ))
+		(line (pt 224 288)(pt 208 288)(line_width 1))
+	)
+	(port
+		(pt 224 304)
+		(output)
+		(text "tie" (rect 0 0 11 12)(font "Arial" ))
+		(text "tie" (rect 192 299 203 311)(font "Arial" ))
+		(line (pt 224 304)(pt 208 304)(line_width 1))
+	)
+	(port
+		(pt 224 320)
+		(output)
+		(text "lose" (rect 0 0 20 12)(font "Arial" ))
+		(text "lose" (rect 183 315 203 327)(font "Arial" ))
+		(line (pt 224 320)(pt 208 320)(line_width 1))
+	)
+	(port
+		(pt 224 336)
+		(output)
+		(text "key_read" (rect 0 0 46 12)(font "Arial" ))
+		(text "key_read" (rect 157 331 203 343)(font "Arial" ))
+		(line (pt 224 336)(pt 208 336)(line_width 1))
+	)
+	(port
+		(pt 224 352)
+		(output)
+		(text "OurCells[8..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "OurCells[8..0]" (rect 135 347 203 359)(font "Arial" ))
+		(line (pt 224 352)(pt 208 352)(line_width 3))
+	)
+	(port
+		(pt 224 368)
+		(output)
+		(text "OppCells[8..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "OppCells[8..0]" (rect 133 363 203 375)(font "Arial" ))
+		(line (pt 224 368)(pt 208 368)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 208 400)(line_width 1))
+	)
+)
